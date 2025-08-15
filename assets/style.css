@@ -385,7 +385,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0; /* updated */
+    margin-bottom: 0;
 }
 
 .product-colors {
@@ -526,13 +526,6 @@ footer {
     padding: 4rem 0 0;
 }
 
-/* Footer */
-footer {
-    background-color: var(--footer-bg);
-    color: white;
-    padding: 4rem 0 0;
-}
-
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -661,6 +654,81 @@ footer {
     60% {
         transform: translateY(-10px) translateX(-50%);
     }
+}
+
+/* ===== CONTACT PAGE SPECIFIC STYLES ===== */
+.contact-page {
+    padding: 4rem 0;
+}
+
+.contact-form-container, 
+.contact-info-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+/* Fixed Select Dropdown */
+.select-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.contact-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--medium-gray);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--accent-color);
+}
+
+/* Contact Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.contact-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--medium-gray);
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .contact-select,
+body.dark-mode .contact-input {
+    background: var(--light-gray);
+    border-color: var(--medium-gray);
+}
+
+body.dark-mode .select-arrow {
+    color: var(--accent-color);
 }
 
 /* Responsive */

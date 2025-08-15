@@ -3,18 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | ShoeStore</title>
+  <title>Contact Us | PRIME STEP</title>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    .map {
-      margin-top: 30px;
+    /* CONTACT PAGE STYLES */
+    .contact-container {
+      padding: 2rem 0;
+    }
+    
+    .contact-box {
+      background: #000;
+      color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
+    }
+    
+    body.dark-mode .contact-box {
+      background: #fff;
+      color: #000;
+    }
+    
+    .contact-box h2 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .contact-input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid #444;
+    }
+    
+    body.dark-mode .contact-input {
+      background: rgba(0,0,0,0.05);
+      color: #000;
+      border: 1px solid #ddd;
+    }
+    
+    /* FIXED SELECT STYLES */
+    .select-wrapper {
+      position: relative;
+    }
+    
+    .contact-select {
+      width: 100%;
+      padding: 0.8rem;
+      padding-right: 2.5rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid #444;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+    
+    body.dark-mode .contact-select {
+      background: rgba(0,0,0,0.05);
+      color: #000;
+      border: 1px solid #ddd;
+    }
+    
+    .select-arrow {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #ff6b6b;
+    }
+    
+    .contact-select::-ms-expand {
+      display: none;
+    }
+    
+    /* Contact info styles */
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: center;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+      color: #ff6b6b;
+    }
+    
+    body.dark-mode .contact-icon {
+      background: rgba(0,0,0,0.05);
+    }
+    
+    .contact-info-text h3 {
+      margin-bottom: 0.3rem;
+    }
+    
+    .contact-info-text p {
+      opacity: 0.9;
+    }
+    
+    /* Map styles */
+    .contact-map {
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      height: 400px;
+      margin-top: 3rem;
     }
-    .map iframe {
+    
+    .contact-map iframe {
       width: 100%;
-      height: 350px;
+      height: 100%;
       border: 0;
     }
   </style>
@@ -23,34 +144,109 @@
 
 <header>
   <div class="container">
-    <nav>
-      <h1>ShoeStore</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <nav class="saas-nav">
+      <a href="index.html" class="saas-logo">
+        <span class="logo-icon">👟</span> PRIME STEP
+      </a>
+      <div class="saas-nav-links">
+        <a href="index.html" class="saas-nav-link">Home</a>
+        <a href="shop.html" class="saas-nav-link">Shop</a>
+        <a href="about.html" class="saas-nav-link">About</a>
+        <a href="contact.html" class="saas-nav-link active">Contact</a>
+        <a href="#" class="saas-nav-link cart-icon"><i class="fas fa-shopping-bag"></i></a>
+      </div>
+      <div class="nav-actions">
+        <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
+        <button class="mobile-menu-toggle" aria-label="Mobile menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
 
-<div class="container">
-  <h2>Contact Us</h2>
-  <form>
-    <label>Name:</label>
-    <input type="text" placeholder="Your name" required>
-
-    <label>Email:</label>
-    <input type="email" placeholder="Your email" required>
-
-    <label>Message:</label>
-    <textarea placeholder="Your message" required></textarea>
-
-    <button type="submit">Send Message</button>
-  </form>
-
-  <div class="map">
+<main class="container contact-container">
+  <h1 style="text-align: center; margin-bottom: 1.5rem;">Contact PRIME STEP</h1>
+  
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <!-- Contact Form -->
+    <div class="contact-box">
+      <h2>Send Us a Message</h2>
+      <form>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" class="contact-input" placeholder="Name" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" class="contact-input" placeholder="email@example.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Subject</label>
+          <div class="select-wrapper">
+            <select class="contact-select" required>
+              <option value="" disabled selected hidden>Select a subject</option>
+              <option value="order">Order Inquiry</option>
+              <option value="support">Customer Support</option>
+              <option value="feedback">Product Feedback</option>
+            </select>
+            <div class="select-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="contact-input" style="min-height: 150px;" placeholder="Your message here..." required></textarea>
+        </div>
+        
+        <button type="submit" style="background: #ff6b6b; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: 600;">
+          Send Message
+        </button>
+      </form>
+    </div>
+    
+    <!-- Contact Info -->
+    <div class="contact-box">
+      <h2>Our Information</h2>
+      
+      <div class="contact-info-item">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="contact-info-text">
+          <h3>Our Location</h3>
+          <p>123 Shoe Street<br>Kuala Lumpur, 50450</p>
+        </div>
+      </div>
+      
+      <div class="contact-info-item">
+        <div class="contact-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="contact-info-text">
+          <h3>Call Us</h3>
+          <p>+60 3-1234 5678<br>Mon-Fri: 9am-6pm</p>
+        </div>
+      </div>
+      
+      <div class="contact-info-item">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-info-text">
+          <h3>Email Us</h3>
+          <p>hello@primestep.com<br>support@primestep.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Map Section -->
+  <div class="contact-map">
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1992.6354351951736!2d101.6932078!3d3.1390039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc362fc6dc4fdf%3A0x2b5c2a1dc7d22c5!2sKuala%20Lumpur!5e0!3m2!1sen!2smy!4v1693388888888!5m2!1sen!2smy" 
       allowfullscreen="" 
@@ -58,11 +254,74 @@
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
-</div>
+</main>
 
 <footer>
-  <p>&copy; 2025 ShoeStore. All rights reserved.</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>PRIME STEP</h3>
+        <p>Premium footwear for every step of your journey.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">Men's Shoes</a></li>
+          <li><a href="shop.html">Women's Shoes</a></li>
+          <li><a href="shop.html">New Arrivals</a></li>
+          <li><a href="shop.html">Best Sellers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<script>
+  document.getElementById("modeToggle").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  });
+
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+  }
+
+  document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+    document.querySelector('.saas-nav-links').classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>

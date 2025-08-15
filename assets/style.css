@@ -260,6 +260,33 @@ body {
     cursor: pointer;
 }
 
+.trust-badge {
+  background: #a8dadc;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.trust-badge .container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-badge .badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.trust-badge i {
+  font-size: 1.4rem;
+  color: #FFD700;
+}
+
+
 /* Brand Logos Section */
 .brand-logos {
     padding: 3rem 0;
@@ -367,6 +394,13 @@ body {
     height: 100%;
 }
 
+.product-card img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    display: block;
+}
+
 .product-info {
     padding: 20px;
     text-align: left;
@@ -439,6 +473,86 @@ body {
     transform: translateY(-2px);
 }
 
+/* Customer Reviews Section - Horizontal Scrollable Cards */
+.customer-reviews {
+  padding: 2rem;
+  background-color: #f9f9f9; /* Light gray in light mode */
+}
+
+.dark-mode .customer-reviews {
+  background-color: #000; /* Pure black in dark mode */
+}
+
+.customer-reviews h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.dark-mode .customer-reviews h2 {
+  color: #fff; /* White text in dark mode */
+}
+
+.review-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+}
+
+.review-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  flex: 0 0 auto;
+  width: 280px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .review-card {
+  background: #1a1a1a; /* Slightly off-black for cards in dark mode */
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.reviewer-info {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.reviewer-info .name {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+.dark-mode .reviewer-info .name {
+  color: #fff;
+}
+
+.reviewer-info .handle {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.dark-mode .reviewer-info .handle {
+  color: #aaa;
+}
+
+.review-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.dark-mode .review-text {
+  color: #ddd;
+}
 /* Features Section */
 .features {
     padding: 5rem 0;

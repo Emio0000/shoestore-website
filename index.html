@@ -3,56 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home PRIME STEP</title>
+  <title>PRIME STEP | Premium Footwear</title>
   <link rel="stylesheet" href="assets/style.css">
+  <!-- Add modern font library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Add smooth scroll -->
+  <style>html {scroll-behavior: smooth;}</style>
 </head>
 <body>
 
 <header>
   <div class="container">
     <nav class="saas-nav">
-      <a href="/" class="saas-logo">PRIME STEP</a>
+      <a href="/" class="saas-logo">
+        <span class="logo-icon">👟</span> PRIME STEP
+      </a>
       <div class="saas-nav-links">
-        <a href="index.html" class="saas-nav-link">Home</a>
+        <a href="index.html" class="saas-nav-link active">Home</a>
         <a href="shop.html" class="saas-nav-link">Shop</a>
         <a href="about.html" class="saas-nav-link">About</a>
         <a href="contact.html" class="saas-nav-link">Contact</a>
+        <a href="#" class="saas-nav-link cart-icon"><i class="fas fa-shopping-bag"></i></a>
       </div>
       
-      <button id="modeToggle">🌓</button>
+      <div class="nav-actions">
+        <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
+        <button class="mobile-menu-toggle" aria-label="Mobile menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <h1>Step into Style</h1>
-</section>
-
-<div class="container">
-  <h2>Featured Products</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1698995475439-f6fa0734e30e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXMlMjBuaWtlfGVufDB8fDB8fHww" alt="Shoe 1">
-      <h3>Running Shoes</h3>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoe 2">
-      <h3>Casual Sneakers</h3>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoe 3">
-      <h3>Formal Shoes</h3>
+  <div class="hero-content">
+    <h1>Step into <span class="highlight">Style</span></h1>
+    <p class="hero-subtitle">Premium footwear crafted for comfort and performance</p>
+    <div class="hero-cta">
+      <a href="shop.html" class="btn-primary">Shop Now</a>
+      <a href="#about" class="btn-secondary">Learn More</a>
     </div>
   </div>
-</div>
+  <div class="scroll-indicator">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<section class="brand-logos">
+  <div class="container">
+    <p>Trusted by athletes worldwide</p>
+    <div class="logos-grid">
+      <img src="https://via.placeholder.com/120x60?text=NIKE" alt="Nike">
+      <img src="https://via.placeholder.com/120x60?text=ADIDAS" alt="Adidas">
+      <img src="https://via.placeholder.com/120x60?text=PUMA" alt="Puma">
+      <img src="https://via.placeholder.com/120x60?text=NEW+BALANCE" alt="New Balance">
+    </div>
+  </div>
+</section>
+
+<section id="featured" class="featured-products">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="products">
+      <div class="product-card">
+        <div class="product-badge">New</div>
+        <img src="https://images.unsplash.com/photo-1698995475439-f6fa0734e30e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXMlMjBuaWtlfGVufDB8fDB8fHww" alt="Running Shoes">
+        <div class="product-info">
+          <h3>Nike Air Max</h3>
+          <div class="product-meta">
+            <div class="product-colors">
+              <span class="color-option" style="background-color: #000;"></span>
+              <span class="color-option" style="background-color: #fff; border: 1px solid #ddd;"></span>
+              <span class="color-option" style="background-color: #e63946;"></span>
+            </div>
+            <div class="product-price">$129.99</div>
+          </div>
+          <a href="shop.html" class="product-cta">Shop Now</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-badge sale">Sale</div>
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Casual Sneakers">
+        <div class="product-info">
+          <h3>Adidas Originals</h3>
+          <div class="product-meta">
+            <div class="product-colors">
+              <span class="color-option" style="background-color: #1d3557;"></span>
+              <span class="color-option" style="background-color: #a8dadc;"></span>
+            </div>
+            <div class="product-price"><span class="original-price">$99.99</span> $79.99</div>
+          </div>
+          <a href="shop.html" class="product-cta">Shop Now</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Formal Shoes">
+        <div class="product-info">
+          <h3>Cole Haan Oxfords</h3>
+          <div class="product-meta">
+            <div class="product-colors">
+              <span class="color-option" style="background-color: #3a0ca3;"></span>
+              <span class="color-option" style="background-color: #f72585;"></span>
+            </div>
+            <div class="product-price">$149.99</div>
+          </div>
+          <a href="shop.html" class="product-cta">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-truck"></i>
+        </div>
+        <h3>Free Shipping</h3>
+        <p>On all orders over $50</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-undo"></i>
+        </div>
+        <h3>Easy Returns</h3>
+        <p>30-day return policy</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h3>Secure Payment</h3>
+        <p>100% secure checkout</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Dedicated support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to our newsletter for the latest releases and exclusive offers.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <p>&copy; 2025 ShoeStore. All rights reserved.</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>PRIME STEP</h3>
+        <p>Premium footwear for every step of your journey.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Men's Shoes</a></li>
+          <li><a href="#">Women's Shoes</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Best Sellers</a></li>
+        </ul>
+      </div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
 document.getElementById("modeToggle").addEventListener("click", function() {
     document.body.classList.toggle("dark-mode");
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}
+
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+    document.querySelector('.saas-nav-links').classList.toggle('active');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
 </script>
 

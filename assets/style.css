@@ -1,0 +1,214 @@
+:root {
+    --bg-color: #fafafa;
+    --text-color: #020202; 
+    --card-bg: white;
+    --primary-color: #0C6F86; 
+    --secondary-color: #095363; 
+    --footer-bg: #111;
+}
+
+body.dark-mode {
+    --bg-color: #000;
+    --text-color: #f3f3f3; 
+    --card-bg: #1e1e1e;
+    --primary-color: #0C6F86; 
+    --secondary-color: #095363;
+    --footer-bg: #000;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*Navigation*/
+.saas-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.saas-logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.saas-nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.saas-nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.saas-nav-link:hover {
+    color: var(--primary-color);
+}
+
+.saas-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.saas-nav-link:hover::after {
+    width: 100%;
+}
+
+/* Dark Mode Toggle Button */
+#modeToggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#modeToggle:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1471&auto=format&fit=crop') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    color: var(--text-color);
+}
+
+/* Products / Categories Section */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 3rem 0;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px; 
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    margin: 15px 0 5px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+
+.product-card p {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+
+.product-card button {
+    display: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--footer-bg);
+    color: var(--text-color);
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .saas-nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .saas-nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .saas-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}

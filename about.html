@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | ShoeStore</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About PRIME STEP</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header>
   <div class="container">
-    <nav>
-      <h1>ShoeStore</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html" style="color: #ff6b6b;">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <nav class="saas-nav">
+      <a href="index.html" class="saas-logo">PRIME STEP</a>
+      <div class="saas-nav-links">
+        <a href="index.html" class="saas-nav-link">Home</a>
+        <a href="shop.html" class="saas-nav-link">Shop</a>
+        <a href="about.html" class="saas-nav-link">About</a>
+        <a href="contact.html" class="saas-nav-link">Contact</a>
+      </div>
+      <button id="modeToggle">Toggle Mode</button>
     </nav>
   </div>
 </header>
 
-<div class="container">
-  <h2>About Us</h2>
-  <p>Welcome to ShoeStore — your go-to destination for stylish, comfortable, and affordable footwear.  
-  Founded in 2020, we are passionate about delivering high-quality shoes for every occasion, from sports to formal events.</p>
+<section class="hero">
+  <h1>About PRIME STEP</h1>
+</section>
 
-  <p>Our mission is simple: combine style, comfort, and affordability.  
-  We work closely with trusted manufacturers to bring you the best designs at the best prices.</p>
+<div class="container">
+  <h2>Our Story</h2>
+  <p>
+    PRIME STEP was founded with the vision to bring style, comfort, and quality to your every step. 
+    We believe that every shoe tells a story, and our curated collection ensures you walk confidently in style.
+  </p>
+
+  <h2>Our Mission</h2>
+  <p>
+    Our mission is to provide footwear that combines modern design with exceptional comfort. 
+    From casual sneakers to formal shoes, we aim to deliver quality that inspires every step.
+  </p>
+
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>Premium quality shoes at affordable prices.</li>
+    <li>Wide range of styles to suit every occasion.</li>
+    <li>Customer-first approach with excellent service.</li>
+    <li>Eco-conscious materials and ethical sourcing.</li>
+  </ul>
 </div>
 
 <footer>
-  <p>&copy; 2025 ShoeStore. All rights reserved.</p>
+  <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
 </footer>
+
+<script>
+  const toggleBtn = document.getElementById('modeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 
 </body>
 </html>

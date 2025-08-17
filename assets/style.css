@@ -1201,3 +1201,37 @@ body.dark-mode .select-arrow {
         grid-template-columns: 1fr;
     }
 }
+
+/* About Page Video */
+.about-video {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.about-video h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px; /* smaller size */
+  margin: 0 auto;
+  padding-bottom: 315px; /* keeps ratio for 560x315 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 10px;
+}

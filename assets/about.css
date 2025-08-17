@@ -1,0 +1,99 @@
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #111, #444);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* About Section (image + text) */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 60px auto;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.about-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-img {
+  flex: 1;
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Why Choose Us */
+.about-list {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.about-list h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.about-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-list ul li {
+  font-size: 16px;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.about-list ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: white;
+  margin-top: 50px;
+}

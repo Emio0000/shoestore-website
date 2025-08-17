@@ -14,7 +14,7 @@
   <div class="container">
     <nav class="saas-nav">
       <a href="/" class="saas-logo">
-        <span class="logo-icon">👟</span> PRIME STEP
+          <span class="logo-icon">👟</span> PRIME STEP 
       </a>
       <div class="saas-nav-links">
         <a href="index.html" class="saas-nav-link active">Home</a>
@@ -46,6 +46,12 @@
   <div class="scroll-indicator">
     <i class="fas fa-chevron-down"></i>
   </div>
+ 
+<div class="sale-banner">
+  <p>🔥 Clear Stock Sale in <span id="countdown"></span></p>
+</div>
+
+
 </section>
 
 <section class="customer-reviews">
@@ -80,17 +86,17 @@
       </div>
     </div>
     <div class="review-slide">
-      <p class="review-text">"Perfect fit and excellent customer service when I had questions."</p>
+      <p class="review-text">"Good shoes i recommend you buy here."</p>
       <div class="reviewer-info">
-        <span class="reviewer-name">Jamie</span>
-        <span class="review-time">• 5 months ago</span>
+        <span class="reviewer-name">Haikal</span>
+        <span class="review-time">• 2 months ago</span>
       </div>
     </div>
     <div class="review-slide">
-      <p class="review-text">"Perfect fit and excellent customer service when I had questions."</p>
+      <p class="review-text">"Perfect shoes and fast delivery."</p>
       <div class="reviewer-info">
-        <span class="reviewer-name">Jamie</span>
-        <span class="review-time">• 5 months ago</span>
+        <span class="reviewer-name">Kgen</span>
+        <span class="review-time">• 2 weeks ago</span>
       </div>
     </div>
   </div>
@@ -100,15 +106,17 @@
 <section id="featured" class="featured-products featured-section">
   <div class="container">
     <div class="section-header">
-      <h2>Featured Products</h2>
+      <h2>Category Product</h2>
       <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="products">
-      <div class="product-card">
+      
+      <!-- Sneaker -->
+      <div class="product-card sneaker-category">
         <div class="product-badge">SNEAKER</div>
         <img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fHNuZWFrZXJ8ZW58MHx8MHx8fDA%3D" alt="Running Shoes">
         <div class="product-info">
-          <h3>Nike White</h3>
+          <h3>Nike Low</h3>
           <div class="product-meta">
             <div class="product-colors">
               <span class="color-option" style="background-color: #000;"></span>
@@ -120,7 +128,9 @@
           <a href="shop.html" class="product-cta">Shop Now</a>
         </div>
       </div>
-      <div class="product-card">
+      
+      <!-- Sport -->
+      <div class="product-card sport-category">
         <div class="product-badge sale">SPORT</div>
         <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHNwb3J0JTIwc2hvZXN8ZW58MHx8MHx8fDA%3D" alt="Casual Sneakers">
         <div class="product-info">
@@ -132,27 +142,31 @@
             </div>
             <div class="product-price"><span class="original-price">RM559.99</span> RM499.99</div>
           </div>
-          <a href="shop.html" class="product-cta">SHOP NOW</a>
+          <a href="shop.html" class="product-cta">Shop Now</a>
         </div>
       </div>
-     <div class="product-card">
-  <div class="product-badge sale">Formal</div>
-  <img src="https://images.unsplash.com/photo-1696271026746-b55c30124d95?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGZvcm1hbCUyMHNob2VzfGVufDB8fDB8fHww" alt="Formal Shoes">
-  <div class="product-info">
-    <h3>Cole Haan Oxfords</h3>
-    <div class="product-meta">
-      <div class="product-colors">
-        <span class="color-option" style="background-color: #6e5318;"></span>
-        <span class="color-option" style="background-color: #000000;"></span>
+      
+      <!-- Formal -->
+      <div class="product-card formal-category">
+        <div class="product-badge sale">Formal</div>
+        <img src="https://images.unsplash.com/photo-1696271026746-b55c30124d95?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGZvcm1hbCUyMHNob2VzfGVufDB8fDB8fHww" alt="Formal Shoes">
+        <div class="product-info">
+          <h3>Cole Haan Oxfords</h3>
+          <div class="product-meta">
+            <div class="product-colors">
+              <span class="color-option" style="background-color: #6e5318;"></span>
+              <span class="color-option" style="background-color: #000000;"></span>
+            </div>
+            <div class="product-price">RM149.99</div>
+          </div>
+          <a href="shop.html" class="product-cta">Shop Now</a>
+        </div>
       </div>
-      <div class="product-price">RM149.99</div>
-    </div>
-    <a href="shop.html" class="product-cta">Shop Now</a>
-  </div>
-</div>
+
     </div>
   </div>
 </section>
+
 
 <section class="features">
   <div class="container">
@@ -276,7 +290,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+const countdown = document.getElementById("countdown");
+if (countdown) {
+  const saleEnd = new Date("2025-08-31T23:59:59").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = saleEnd - now;
+
+    if (distance < 0) {
+      countdown.innerHTML = "🔥 Sale Ended!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = ` ${days}d ${hours}h ${mins}m ${secs}s`;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+}
+
+const reviewContainer = document.querySelector(".reviews-slider");
+if (reviewContainer) {
+  let scrollPosition = 0;
+  const slideSpeed = 1; 
+  const slideInterval = 15;
+
+  setInterval(() => {
+    scrollPosition += slideSpeed;
+    if (scrollPosition >= reviewContainer.scrollWidth - reviewContainer.clientWidth) {
+      scrollPosition = 0; 
+    }
+    reviewContainer.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth"
+    });
+  }, slideInterval);
+}
 </script>
+
+
 
 </body>
 </html>

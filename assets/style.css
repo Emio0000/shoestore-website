@@ -2,8 +2,8 @@
     --bg-color: #ffffff;
     --text-color: #333333;
     --card-bg: white;
-    --primary-color: #0C6F86;
-    --secondary-color: #095363;
+    --primary-color: #095363;
+    --secondary-color: #f5f7f8;
     --footer-bg: #111;
     --accent-color: #FF6B6B;
     --light-gray: #f8f9fa;
@@ -17,28 +17,13 @@
     --border-color: #000; 
 }
 
-body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #f8f9fa;
-    --card-bg: #1e1e1e;
-    --primary-color: #4ECDC4;
-    --secondary-color: #3BA99C;
-    --footer-bg: #000;
-    --light-gray: #2d2d2d;
-    --medium-gray: #3d3d3d;
-    --dark-gray: #e9ecef;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --box-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.3);
-
-    --border-color: #fff; 
-}
 
 body.dark-mode {
     --bg-color: #121212;
     --text-color: #f8f9fa;
     --card-bg: #1e1e1e;
     --primary-color: #4ECDC4;
-    --secondary-color: #3BA99C;
+    --secondary-color: #0b0b0b;
     --footer-bg: #000;
     --light-gray: #2d2d2d;
     --medium-gray: #3d3d3d;
@@ -46,6 +31,17 @@ body.dark-mode {
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --box-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.3);
     --border-color: #fff;
+}
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-secondary:hover {
+  box-shadow: 0 0 15px #e5eded, 0 0 30px #b1e1e8;
+  transition: 0.3s;
+}
+
+body.dark-mode .product-card:hover {
+  box-shadow: 0 0 20px #ece8ec, 0 0 40px #0b0b0b;
+  transform: translateY(-8px);
+  transition: 0.3s;
 }
 
 /*  Reset & Base */
@@ -115,25 +111,32 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 0;
+    padding: 20px 0;
     position: relative;
 }
 
 .saas-logo {
-    font-size: 26px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--primary-color);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px; 
 }
 
 .logo-icon {
-    font-size: 28px;
+    width: 20px; 
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: all 0.3s ease;
 }
 
+.saas-logo:hover .logo-icon {
+    transform: scale(1.05);
+}
 .saas-nav-links {
     display: flex;
     gap: 30px;
@@ -275,8 +278,21 @@ body {
     transform: translateX(-50%);
     color: white;
     font-size: 24px;
-    animation: bounce 2s infinite;
     cursor: pointer;
+    animation: bounceSlide 2s infinite;
+}
+
+/* Slide + Bounce Animation */
+@keyframes bounceSlide {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -15px); /* moves up */
+    }
+    60% {
+        transform: translate(-50%, -8px);  /* small bounce */
+    }
 }
 
 .trust-badge {
@@ -299,10 +315,34 @@ body {
   gap: 10px;
   font-size: 1.1rem;
 }
-
 .trust-badge i {
   font-size: 1.4rem;
   color: #FFD700;
+}
+
+.sale-banner {
+  background: linear-gradient(90deg, #030303, #36dde3);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 25px;        
+  font-size: 1.1rem;
+  position: sticky;
+  top: 10px;                
+  z-index: 1000;
+  animation: pulseBanner 2s infinite alternate;
+  border-radius: 50px;       
+  display: inline-block;     
+  margin: 0 auto;           
+}
+
+.sale-banner p {
+  margin: 0; 
+}
+
+@keyframes pulseBanner {
+  from { opacity: 0.9; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 
@@ -387,31 +427,23 @@ body {
     gap: 30px;
 }
 
-/* Updated Product Card Styles */
+/* ===== Product Card ===== */
 .product-card {
     background: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
-    position: relative; /* needed for badge positioning */
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 1px solid var(--border-color); /* adaptive border added */
+    border: 1px solid var(--border-color); 
 }
 
 .product-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--box-shadow-hover);
-}
-
-.product-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .product-card img {
@@ -423,9 +455,9 @@ body {
 
 .product-badge {
     position: absolute;
-    top: 15px;               /* distance from top of image */
-    left: 50%;               /* center horizontally */
-    transform: translateX(-50%); /* perfect horizontal center */
+    top: 15px;           
+    left: 50%;               
+    transform: translateX(-50%);
     background-color: var(--primary-color, #020202);
     color: #fff;
     padding: 8px 15px;
@@ -438,7 +470,7 @@ body {
 }
 
 .product-badge.sale {
-    background-color: #0e0e0e; /* different color for sale badges */
+    background-color: #0e0e0e; 
 }
 
 .product-info {
@@ -492,12 +524,10 @@ body {
     margin-right: 5px;
 }
 
+/* ===== CTA Buttons ===== */
 .product-cta {
     width: 100%;
     padding: 12px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
     border-radius: var(--border-radius);
     font-weight: 600;
     cursor: pointer;
@@ -506,12 +536,53 @@ body {
     text-decoration: none;
     display: block;
     margin-top: auto;
+    color: #fff;
 }
 
+/* Automatically set CTA color based on badge type */
+.product-card .product-badge {
+    text-transform: uppercase;
+}
+
+.product-card .product-cta {
+    background-color: #0e0e0e; /* Default dark background */
+    border: 1px solid #0e0e0e;
+}
+
+.product-card .product-badge:contains('SNEAKER') ~ .product-info .product-cta {
+    background-color: #000;
+    border-color: #000;
+}
+
+.product-card .product-badge:contains('SPORT') ~ .product-info .product-cta,
+.product-card .product-badge:contains('FORMAL') ~ .product-info .product-cta {
+    background-color: #0e0e0e;
+    border-color: #0e0e0e;
+}
+
+/* Hover Effects */
 .product-cta:hover {
-    background-color: var(--secondary-color);
+    background-color: #333;
+    border-color: #333;
     transform: translateY(-2px);
 }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .sneaker-category .product-card {
+        border-top-width: 2px;
+    }
+    .sneaker-category .product-badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
+
+/* New variables (add to your :root) */
+:root {
+    --sneaker-accent: #333333;
+}
+
 /* Customer Reviews Section */
 .customer-reviews {
   padding: 2rem;
@@ -536,7 +607,7 @@ body {
 .review-cards {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
+  overflow-x: hidden;
   padding-bottom: 20px;
   scrollbar-width: none;
 }
@@ -639,6 +710,7 @@ body {
   padding: 4rem 0;
   background-color: var(--light-gray);
   text-align: center;
+  position: relative; /* for any future arrows/badges */
 }
 
 .customer-reviews h2 {
@@ -660,24 +732,20 @@ body {
   background-color: var(--primary-color);
 }
 
+/* Reviews slider container */
 .reviews-slider {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden; 
   gap: 20px;
   padding: 20px 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; 
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
-.reviews-slider::-webkit-scrollbar {
-  display: none; 
-}
-
+/* Individual review slides */
 .review-slide {
   flex: 0 0 300px;
-  flex-shrink: 0; 
   scroll-snap-align: start;
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -687,6 +755,7 @@ body {
   transition: var(--transition);
 }
 
+/* Text inside review */
 .review-text {
   font-size: 1rem;
   line-height: 1.6;
@@ -695,6 +764,7 @@ body {
   font-style: italic;
 }
 
+/* Reviewer info */
 .reviewer-info {
   display: flex;
   align-items: center;
@@ -710,6 +780,14 @@ body {
 .review-time {
   color: var(--dark-gray);
 }
+
+/* Optional: add hover zoom effect */
+.review-slide:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
 
 /*  Reviews Slider for Mobile */
 .customer-reviews {

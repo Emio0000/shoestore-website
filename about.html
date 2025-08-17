@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About PRIME STEP</title>
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About PRIME STEP</title>
+  <link rel="stylesheet" href="assets/style.css"> <!-- global styles -->
+  <link rel="stylesheet" href="assets/about.css"> <!-- about page only -->
 </head>
 <body>
 
@@ -15,7 +16,7 @@
       <div class="saas-nav-links">
         <a href="index.html" class="saas-nav-link">Home</a>
         <a href="shop.html" class="saas-nav-link">Shop</a>
-        <a href="about.html" class="saas-nav-link">About</a>
+        <a href="about.html" class="saas-nav-link active">About</a>
         <a href="contact.html" class="saas-nav-link">Contact</a>
       </div>
       <button id="modeToggle">Toggle Mode</button>
@@ -23,23 +24,42 @@
   </div>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
   <h1>About PRIME STEP</h1>
+  <p>Step with confidence, style, and comfort</p>
 </section>
 
-<div class="container">
-  <h2>Our Story</h2>
-  <p>
-    PRIME STEP was founded with the vision to bring style, comfort, and quality to your every step. 
-    We believe that every shoe tells a story, and our curated collection ensures you walk confidently in style.
-  </p>
+<!-- Our Story -->
+<div class="container about-section">
+  <div class="about-text">
+    <h2>Our Story</h2>
+    <p>
+      PRIME STEP was founded with the vision to bring style, comfort, and quality to your every step. 
+      We believe that every shoe tells a story, and our curated collection ensures you walk confidently in style.
+    </p>
+  </div>
+  <div class="about-img">
+    <img src="assets/story.jpg" alt="Our Story">
+  </div>
+</div>
 
-  <h2>Our Mission</h2>
-  <p>
-    Our mission is to provide footwear that combines modern design with exceptional comfort. 
-    From casual sneakers to formal shoes, we aim to deliver quality that inspires every step.
-  </p>
+<!-- Our Mission -->
+<div class="container about-section reverse">
+  <div class="about-img">
+    <img src="assets/mission.jpg" alt="Our Mission">
+  </div>
+  <div class="about-text">
+    <h2>Our Mission</h2>
+    <p>
+      Our mission is to provide footwear that combines modern design with exceptional comfort. 
+      From casual sneakers to formal shoes, we aim to deliver quality that inspires every step.
+    </p>
+  </div>
+</div>
 
+<!-- Why Choose Us -->
+<div class="container about-list">
   <h2>Why Choose Us?</h2>
   <ul>
     <li>Premium quality shoes at affordable prices.</li>

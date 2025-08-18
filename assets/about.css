@@ -1,33 +1,210 @@
-/* About Page Video */
+/* Hero Section */
+.about-hero {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  background: url("https://images.unsplash.com/photo-1579446650032-86effeeb3389?q=80&w=1600&auto=format&fit=crop") 
+              no-repeat center center/cover;
+  color: #ffffff;
+}
+.about-hero .hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+}
+.hero-title {
+  position: relative;
+  font-size: 3.5rem;
+  font-weight: bold;
+  animation: fadeDown 1s ease-out forwards;
+}
+@keyframes fadeDown {
+  from {opacity:0; transform:translateY(-40px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* Video Section */
 .about-video {
   text-align: center;
-  margin: 60px auto;
+  margin: 0; /* remove space */
+  background: #111; /* dark background */
+  padding: 40px 0;
 }
-
 .about-video h2 {
   margin-bottom: 20px;
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 2rem;
+  color: #ff6600;
 }
-
 .video-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  height: 0;
+  height: 70vh;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
-
 .video-container iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   border: 0;
-  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* About Content */
+.about-content {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  background: #1a1a1a; /* dark grey background */
+  color: #eee;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+.about-content h2 {
+  color: #ff6600;
+  margin-top: 30px;
+}
+.about-content p, .about-content ul {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+.about-content ul {
+  list-style: none;
+  padding: 0;
+}
+.about-content ul li {
+  margin: 10px 0;
+  position: relative;
+  padding-left: 20px;
+}
+.about-content ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #ff6600;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.about-content h2, .about-content p, .about-content ul li {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+/* Newsletter */
+.newsletter {
+  padding: 70px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ff6600, #ff3300); /* gradient background */
+  color: #fff;
+}
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.newsletter-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.newsletter-form input[type="email"] {
+  padding: 12px 15px;
+  width: 300px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+.btn-primary {
+  padding: 12px 25px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover {
+  background: #333;
+}
+
+/* Footer */
+.modern-footer {
+  background: #000;
+  color: #eee;
+  padding: 60px 20px 20px;
+}
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+.footer-col {
+  flex: 1 1 200px;
+}
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.footer-tagline {
+  font-size: 0.95rem;
+  color: #bbb;
+}
+.social-links a {
+  color: #fff;
+  margin-right: 12px;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: #ff6600;
+}
+.footer-heading {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+.footer-links li {
+  margin-bottom: 6px;
+}
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: #ff6600;
+}
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+.footer-legal a {
+  color: #aaa;
+  margin-left: 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-legal a:hover {
+  color: #ff6600;
 }

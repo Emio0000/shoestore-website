@@ -4,147 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About PRIME STEP</title>
-  <link rel="stylesheet" href="assets/style.css"> <!-- universal styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /* Hero Section for About Page */
-    .about-hero {
-      position: relative;
-      padding: 100px 20px;
-      text-align: center;
-      background: url("https://images.unsplash.com/photo-1579446650032-86effeeb3389?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
-                  no-repeat center center/cover;
-      color: #fff;
-      overflow: hidden;
-    }
-
-    .about-hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
-    }
-
-    .hero-title {
-      position: relative;
-      font-size: 3rem;
-      font-weight: bold;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: slideUpFade 1s ease-out forwards;
-    }
-
-    @keyframes slideUpFade {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .about-content {
-      padding: 40px 20px;
-    }
-    .about-content h2 {
-      color: #ff6600; /* highlight headings */
-      margin-top: 30px;
-    }
-    .about-content p, .about-content ul {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    /* Newsletter Section */
-    .newsletter {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f2f2f2;
-    }
-    .newsletter h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-    .newsletter p {
-      margin-bottom: 25px;
-    }
-    .newsletter-form input[type="email"] {
-      padding: 10px 15px;
-      width: 250px;
-      max-width: 80%;
-      margin-right: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .btn-primary {
-      padding: 10px 20px;
-      background: #ff6600;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    /* Modern Footer */
-    .modern-footer {
-      background: #222;
-      color: #fff;
-      padding: 50px 20px 20px 20px;
-    }
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-    .footer-col {
-      flex: 1 1 200px;
-    }
-    .footer-logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .social-links a {
-      color: #fff;
-      margin-right: 10px;
-      font-size: 1.2rem;
-    }
-    .footer-heading {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-    .footer-links {
-      list-style: none;
-      padding: 0;
-    }
-    .footer-links li {
-      margin-bottom: 5px;
-    }
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-    }
-    .footer-links a:hover {
-      color: #ff6600;
-    }
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      border-top: 1px solid #444;
-      padding-top: 15px;
-      font-size: 0.9rem;
-    }
-    .footer-legal a {
-      color: #ccc;
-      margin-left: 15px;
-      text-decoration: none;
-    }
-    .footer-legal a:hover {
-      color: #ff6600;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/about.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -165,26 +27,23 @@
 
 <!-- Hero Section -->
 <section class="about-hero">
+  <div class="hero-overlay"></div>
   <h1 class="hero-title">About PRIME STEP</h1>
 </section>
 
-
-<!-- About Video Section -->
 <!-- About Video Section -->
 <div class="about-video">
   <h2>Watch Our Story</h2>
   <div class="video-container">
     <iframe 
-      src="https://www.youtube.com/embed/5Zw53xsQ4aU?si=NZo8VQV6uW9dSac0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" 
+      src="https://www.youtube.com/embed/5Zw53xsQ4aU?rel=0&modestbranding=1&showinfo=0&controls=1"
       title="PRIME STEP Story Video"
       frameborder="0"
-      allow="autoplay; encrypted-media"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
 </div>
-
-
 
 <!-- About Content -->
 <div class="container about-content">
@@ -210,7 +69,7 @@
 </div>
 
 <!-- Newsletter Section -->
- <section class="newsletter">
+<section class="newsletter">
   <div class="container">
     <div class="newsletter-content">
       <h2>Stay Updated</h2>
@@ -223,7 +82,6 @@
   </div>
 </section>
 
-
 <!-- Footer -->
 <footer class="modern-footer">
   <div class="container">
@@ -234,10 +92,10 @@
         </div>
         <p class="footer-tagline">Premium footwear for every step of your journey.</p>
         <div class="social-links">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
       
@@ -260,7 +118,6 @@
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>
-      
     </div>
     
     <div class="footer-bottom">
@@ -288,13 +145,18 @@
     document.body.classList.add('dark-mode');
   }
 
-  // Smooth Scroll for anchor links (if needed)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  // Fade-in animations on scroll
+  const faders = document.querySelectorAll('.about-content h2, .about-content p, .about-content ul li');
+  const appearOptions = { threshold: 0.2 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add("fade-in");
+        observer.unobserve(entry.target);
+      }
     });
-  });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
 
 </body>

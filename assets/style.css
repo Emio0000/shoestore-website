@@ -30,6 +30,7 @@ body.dark-mode {
     --dark-gray: #e9ecef;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --box-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.3);
+ HEAD
     --border-color: #fff;
 }
 body.dark-mode .btn-primary:hover,
@@ -42,6 +43,25 @@ body.dark-mode .product-card:hover {
   box-shadow: 0 0 20px #ece8ec, 0 0 40px #0b0b0b;
   transform: translateY(-8px);
   transition: 0.3s;
+
+
+    --border-color: #fff; 
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f8f9fa;
+    --card-bg: #1e1e1e;
+    --primary-color: #4ECDC4;
+    --secondary-color: #3BA99C;
+    --footer-bg: #000;
+    --light-gray: #2d2d2d;
+    --medium-gray: #3d3d3d;
+    --dark-gray: #e9ecef;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --box-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.3);
+    --border-color: #fff;
+ 182400c (completed 60% of the work)
 }
 
 /*  Reset & Base */
@@ -282,6 +302,7 @@ body {
     animation: bounceSlide 2s infinite;
 }
 
+<<<<<<< HEAD
 /* Slide + Bounce Animation */
 @keyframes bounceSlide {
     0%, 20%, 50%, 80%, 100% {
@@ -295,6 +316,8 @@ body {
     }
 }
 
+=======
+>>>>>>> 182400c (completed 60% of the work)
 .trust-badge {
   background: #a8dadc;
   color: white;
@@ -315,11 +338,16 @@ body {
   gap: 10px;
   font-size: 1.1rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 182400c (completed 60% of the work)
 .trust-badge i {
   font-size: 1.4rem;
   color: #FFD700;
 }
 
+<<<<<<< HEAD
 .sale-banner {
   background: linear-gradient(90deg, #030303, #36dde3);
   color: #fff;
@@ -345,6 +373,8 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
+=======
+>>>>>>> 182400c (completed 60% of the work)
 
 /* Brand Logos Section */
 .brand-logos {
@@ -427,18 +457,26 @@ body {
     gap: 30px;
 }
 
+<<<<<<< HEAD
 /* ===== Product Card ===== */
+=======
+/* Updated Product Card Styles */
+>>>>>>> 182400c (completed 60% of the work)
 .product-card {
     background: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
-    position: relative;
+    position: relative; /* needed for badge positioning */
     display: flex;
     flex-direction: column;
     height: 100%;
+<<<<<<< HEAD
     border: 1px solid var(--border-color); 
+=======
+    border: 1px solid var(--border-color); /* adaptive border added */
+>>>>>>> 182400c (completed 60% of the work)
 }
 
 .product-card:hover {
@@ -471,6 +509,33 @@ body {
 
 .product-badge.sale {
     background-color: #0e0e0e; 
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    display: block;
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;               /* distance from top of image */
+    left: 50%;               /* center horizontally */
+    transform: translateX(-50%); /* perfect horizontal center */
+    background-color: var(--primary-color, #020202);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    z-index: 10;
+    text-align: center;
+}
+
+.product-badge.sale {
+    background-color: #0e0e0e; /* different color for sale badges */
 }
 
 .product-info {
@@ -566,7 +631,13 @@ body {
     border-color: #333;
     transform: translateY(-2px);
 }
+/* Customer Reviews Section */
+.customer-reviews {
+  padding: 2rem;
+  background-color: #f9f9f9; 
+}
 
+<<<<<<< HEAD
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .sneaker-category .product-card {
@@ -589,6 +660,8 @@ body {
   background-color: #f9f9f9; 
 }
 
+=======
+>>>>>>> 182400c (completed 60% of the work)
 .dark-mode .customer-reviews {
   background-color: #000; 
 }
@@ -607,7 +680,11 @@ body {
 .review-cards {
   display: flex;
   gap: 20px;
+<<<<<<< HEAD
   overflow-x: hidden;
+=======
+  overflow-x: auto;
+>>>>>>> 182400c (completed 60% of the work)
   padding-bottom: 20px;
   scrollbar-width: none;
 }
@@ -710,7 +787,10 @@ body {
   padding: 4rem 0;
   background-color: var(--light-gray);
   text-align: center;
+<<<<<<< HEAD
   position: relative; /* for any future arrows/badges */
+=======
+>>>>>>> 182400c (completed 60% of the work)
 }
 
 .customer-reviews h2 {
@@ -732,20 +812,40 @@ body {
   background-color: var(--primary-color);
 }
 
+<<<<<<< HEAD
 /* Reviews slider container */
 .reviews-slider {
   display: flex;
   overflow-x: hidden; 
+=======
+.reviews-slider {
+  display: flex;
+  overflow-x: auto;
+>>>>>>> 182400c (completed 60% of the work)
   gap: 20px;
   padding: 20px 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+<<<<<<< HEAD
   white-space: nowrap;
 }
 
 /* Individual review slides */
 .review-slide {
   flex: 0 0 300px;
+=======
+  scrollbar-width: none; 
+  white-space: nowrap; 
+}
+
+.reviews-slider::-webkit-scrollbar {
+  display: none; 
+}
+
+.review-slide {
+  flex: 0 0 300px;
+  flex-shrink: 0; 
+>>>>>>> 182400c (completed 60% of the work)
   scroll-snap-align: start;
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -755,7 +855,10 @@ body {
   transition: var(--transition);
 }
 
+<<<<<<< HEAD
 /* Text inside review */
+=======
+>>>>>>> 182400c (completed 60% of the work)
 .review-text {
   font-size: 1rem;
   line-height: 1.6;
@@ -764,7 +867,10 @@ body {
   font-style: italic;
 }
 
+<<<<<<< HEAD
 /* Reviewer info */
+=======
+>>>>>>> 182400c (completed 60% of the work)
 .reviewer-info {
   display: flex;
   align-items: center;
@@ -781,6 +887,7 @@ body {
   color: var(--dark-gray);
 }
 
+<<<<<<< HEAD
 /* Optional: add hover zoom effect */
 .review-slide:hover {
   transform: scale(1.03);
@@ -789,6 +896,8 @@ body {
 }
 
 
+=======
+>>>>>>> 182400c (completed 60% of the work)
 /*  Reviews Slider for Mobile */
 .customer-reviews {
   padding: 3rem 1rem; 

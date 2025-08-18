@@ -315,27 +315,24 @@ if (countdown) {
   setInterval(updateCountdown, 1000);
   updateCountdown();
 }
-
 const reviewContainer = document.querySelector(".reviews-slider");
 if (reviewContainer) {
   let scrollPosition = 0;
-  const slideSpeed = 1; 
-  const slideInterval = 15;
+  const slideSpeed = 1; // pixels per frame
 
-  setInterval(() => {
+  function slideReviews() {
     scrollPosition += slideSpeed;
     if (scrollPosition >= reviewContainer.scrollWidth - reviewContainer.clientWidth) {
-      scrollPosition = 0; 
+      scrollPosition = 0; // reset
     }
-    reviewContainer.scrollTo({
-      left: scrollPosition,
-      behavior: "smooth"
-    });
-  }, slideInterval);
+    reviewContainer.scrollLeft = scrollPosition;
+    requestAnimationFrame(slideReviews); // continuous animation
+  }
+
+  slideReviews();
 }
+
 </script>
-
-
 
 </body>
 </html>

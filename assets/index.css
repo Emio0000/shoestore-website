@@ -1,124 +1,19 @@
-/* Light mode (default) */
-.review-card {
-  background: #f5f5f5;
-  color: #111;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background 0.3s, color 0.3s;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .review-card {
-    background: #000;
-    color: #fff;
-  }
-}
-
-/* RESET + BASE */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  font-family: "Poppins", sans-serif;
-  background: #fff;
-  color: #222;
-  line-height: 1.6;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-ul { list-style: none; }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/*HEADER & NAV */
-header {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.saas-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
-.saas-logo {
-  font-weight: 700;
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-}
-.saas-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-.saas-nav-link {
-  position: relative;
-  padding: .3rem 0;
-  transition: color .3s;
-}
-.saas-nav-link:hover,
-.saas-nav-link.active {
-  color: #e63946;
-}
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-}
-
-/*HERO*/
+/* HERO */
 .hero {
   height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url("https://images.unsplash.com/photo-1545179767-1198fd4a3e1b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center/cover;
+  background: url("https://images.unsplash.com/photo-1545179767-1198fd4a3e1b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0") no-repeat center/cover;
   color: #fff;
   text-align: center;
   position: relative;
 }
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-}
+.hero h1 { font-size: 3rem; font-weight: 800; }
 .highlight { color: #e63946; }
 .hero-subtitle { margin: .8rem 0 1.5rem; font-size: 1.2rem; }
 .hero-cta { display: flex; gap: 1rem; justify-content: center; }
-.btn-primary, .btn-secondary {
-  padding: .75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all .3s;
-}
-.btn-primary {
-  background: #e63946;
-  color: #fff;
-}
-.btn-primary:hover { background: #c92f3b; }
-.btn-secondary {
-  border: 2px solid #fff;
-  color: #fff;
-}
-.btn-secondary:hover {
-  background: #fff;
-  color: #222;
-}
 .scroll-indicator {
   position: absolute;
   bottom: 2rem;
@@ -129,7 +24,7 @@ header {
   50% { transform: translateY(6px); }
 }
 
-/*STOCK COOLDOWN*/
+/* STOCK COOLDOWN */
 .stock-cooldown {
   background: #0c0c0c; 
   color: #fff;
@@ -142,10 +37,6 @@ header {
   transition: background 0.3s;
 }
 .stock-cooldown:hover { background: #285e64; }
-.dark-mode .stock-cooldown {
-  background: #0a0a0a;
-  color: #fff;
-}
 #cooldown-timer {
   font-size: 1.2rem;
   font-weight: bold;
@@ -153,7 +44,7 @@ header {
   color: #fff;
 }
 
-/*  CUSTOMER REVIEWS */
+/* CUSTOMER REVIEWS */
 .customer-reviews {
   padding: 4rem 1rem;
   background: #f9f9f9;
@@ -174,7 +65,7 @@ header {
   padding: 1.2rem;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
   text-align: left;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   min-width: 280px;
   flex: 0 0 auto;
 }
@@ -191,10 +82,8 @@ header {
 .dark-mode .review-card { background: #0f0f0f; color: #fff; }
 .dark-mode .reviewer-info { color: #bbb; }
 
-/*PRODUCTS*/
-.featured-section {
-  padding: 4rem 0;
-}
+/* PRODUCTS */
+.featured-section { padding: 4rem 0; }
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -246,7 +135,7 @@ header {
 }
 .product-cta:hover { background: #0a0a0a; }
 
-/*FEATURES */
+/* FEATURES */
 .features {
   padding: 4rem 0;
   background: #f8f5f5;
@@ -267,14 +156,8 @@ body.dark-mode .features { background: #0b0b0b; }
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   position: relative;
 }
-.feature-card:hover .feature-icon {
-  transform: rotate(20deg) scale(1.2);
-  transition: transform 0.5s ease;
-}
-.feature-card:hover {
-  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-  transform: translateY(-5px);
-}
+.feature-card:hover { box-shadow: 0 15px 25px rgba(0,0,0,0.15); transform: translateY(-5px); }
+.feature-card:hover .feature-icon { transform: rotate(20deg) scale(1.2); }
 .feature-testimonial {
   margin-top: 10px;
   font-size: 0.9rem;
@@ -283,20 +166,13 @@ body.dark-mode .features { background: #0b0b0b; }
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease, color 0.3s ease;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
 }
-.feature-card:hover .feature-testimonial {
-  opacity: 1;
-  max-height: 50px;
-}
-.feature-icon {
-  font-size: 2rem;
-  color: #e63946;
-  margin-bottom: 0.8rem;
-}
-body.dark-mode .feature-card { color: #f7efef; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.feature-card:hover .feature-testimonial { opacity: 1; max-height: 50px; }
+.feature-icon { font-size: 2rem; color: #e63946; margin-bottom: 0.8rem; }
+body.dark-mode .feature-card { color: #f7efef; }
 
-/*NEWSLETTER*/
+/* NEWSLETTER */
 .newsletter {
   background: #1c525b;
   color: #fff;
@@ -320,7 +196,7 @@ body.dark-mode .feature-card { color: #f7efef; box-shadow: 0 2px 8px rgba(0,0,0,
   cursor: pointer;
 }
 
-/*FOOTER*/
+/* FOOTER */
 .modern-footer {
   background: #111;
   color: #ddd;
@@ -331,11 +207,7 @@ body.dark-mode .feature-card { color: #f7efef; box-shadow: 0 2px 8px rgba(0,0,0,
   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
   gap: 2rem;
 }
-.footer-logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
+.footer-logo { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
 .footer-heading { margin-bottom: 1rem; font-weight: 600; }
 .footer-links li { margin-bottom: .5rem; }
 .footer-links a:hover { color: #e63946; }
@@ -350,17 +222,3 @@ body.dark-mode .feature-card { color: #f7efef; box-shadow: 0 2px 8px rgba(0,0,0,
 }
 .footer-legal a { margin-right: 1rem; font-size: .9rem; color: #aaa; }
 .footer-legal a:hover { color: #fff; }
-
-/*DARK MODE*/
-.dark-mode {
-  background: #111;
-  color: #eee;
-}
-.dark-mode header,
-.dark-mode .product-card,
-.dark-mode .feature-card {
-  background: #1c1c1c;
-  color: #eee;
-}
-.dark-mode .newsletter { background: #222; }
-.dark-mode .btn-primary { background: #e63946; }

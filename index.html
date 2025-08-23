@@ -4,348 +4,250 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PRIME STEP | Premium Footwear</title>
-  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="assets/base.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="assets/index.css">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>html {scroll-behavior: smooth;}</style>
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <nav class="saas-nav">
-      <a href="/" class="saas-logo">
-          <span class="logo-icon">👟</span> PRIME STEP 
-      </a>
-      <div class="saas-nav-links">
-        <a href="index.html" class="saas-nav-link active">Home</a>
-        <a href="shop.html" class="saas-nav-link">Shop</a>
-        <a href="about.html" class="saas-nav-link">About</a>
-        <a href="contact.html" class="saas-nav-link">Contact</a>
-      </div>
-      
-      <div class="nav-actions">
-        <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
-        <button class="mobile-menu-toggle" aria-label="Mobile menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-content">
-    <h1>Step into <span class="highlight">Style</span></h1>
-    <p class="hero-subtitle">Premium footwear crafted for comfort and performance</p>
-    <div class="hero-cta">
-      <a href="contact.html" class="btn-primary">Contact Us</a>
-      <a href="about.html" class="btn-secondary">Learn More</a>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <i class="fas fa-chevron-down"></i>
-  </div>
- 
-<section class="stock-cooldown">
-  <div class="container">
-    <p>⚡ Clear Stock Cooldown!</p><div id="cooldown-timer">00:00:00</div>
-  </div>
-</section>
-
-</section>
-
-<section class="customer-reviews">
-  <h2>Customer Reviews</h2>
-  <div class="reviews-slider">
-    <div class="review-card">
-      <p>“Great shoes! Very comfortable and stylish.”</p>
-      <div class="reviewer-info">– Alice</div>
-    </div>
-    <div class="review-card">
-      <p>“Fast delivery and excellent quality.”</p>
-      <div class="reviewer-info">– Bob</div>
-    </div>
-    <div class="review-card">
-      <p>“I love PRIME STEP! My new go-to shoe brand.”</p>
-      <div class="reviewer-info">– Charlie</div>
-    </div>
-    <div class="review-card">
-      <p>“I love PRIME STEP! My new go-to shoe brand.”</p>
-      <div class="reviewer-info">– Charlie</div>
-    </div>
-    <div class="review-card">
-      <p>“I love PRIME STEP! My new go-to shoe brand.”</p>
-      <div class="reviewer-info">– Charlie</div>
-    </div>
-    <div class="review-card">
-      <p>“I love PRIME STEP! My new go-to shoe brand.”</p>
-      <div class="reviewer-info">– Charlie</div>
-    </div>
-    <div class="review-card">
-      <p>“I love PRIME STEP! My new go-to shoe brand.”</p>
-      <div class="reviewer-info">– Charlie</div>
-    </div>
-    
-  </div>
-</section>
-
-
-<section id="featured" class="featured-products featured-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Category Product</h2>
-      <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-    </div>
-    <div class="products">
-      
-      <!-- Sneaker -->
-      <div class="product-card sneaker-category">
-        <div class="product-badge">SNEAKER</div>
-        <img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fHNuZWFrZXJ8ZW58MHx8MHx8fDA%3D" alt="Running Shoes">
-        <div class="product-info">
-          <h3>Nike Low</h3>
-          <div class="product-meta">
-            <div class="product-colors">
-              <span class="color-option" style="background-color: #000;"></span>
-              <span class="color-option" style="background-color: #fff; border: 1px solid #ddd;"></span>
-              <span class="color-option" style="background-color: #e63946;"></span>
-            </div>
-            <div class="product-price">RM250.00</div>
-          </div>
-          <a href="shop.html" class="product-cta">Shop Now</a>
-        </div>
-      </div>
-      
-      <!-- Sport -->
-      <div class="product-card sport-category">
-        <div class="product-badge sale">SPORT</div>
-        <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHNwb3J0JTIwc2hvZXN8ZW58MHx8MHx8fDA%3D" alt="Casual Sneakers">
-        <div class="product-info">
-          <h3>Adidas Originals</h3>
-          <div class="product-meta">
-            <div class="product-colors">
-              <span class="color-option" style="background-color: #e58d11;"></span>
-              <span class="color-option" style="background-color: #000000;"></span>
-            </div>
-            <div class="product-price"><span class="original-price">RM559.99</span> RM499.99</div>
-          </div>
-          <a href="shop.html" class="product-cta">Shop Now</a>
-        </div>
-      </div>
-      
-      <!-- Formal -->
-      <div class="product-card formal-category">
-        <div class="product-badge sale">Formal</div>
-        <img src="https://images.unsplash.com/photo-1696271026746-b55c30124d95?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGZvcm1hbCUyMHNob2VzfGVufDB8fDB8fHww" alt="Formal Shoes">
-        <div class="product-info">
-          <h3>Cole Haan Oxfords</h3>
-          <div class="product-meta">
-            <div class="product-colors">
-              <span class="color-option" style="background-color: #6e5318;"></span>
-              <span class="color-option" style="background-color: #000000;"></span>
-            </div>
-            <div class="product-price">RM149.99</div>
-          </div>
-          <a href="shop.html" class="product-cta">Shop Now</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="features">
-  <div class="container">
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-truck"></i>
-        </div>
-        <h3>Free Shipping</h3>
-        <p>On all orders over $50</p>
-        <div class="feature-testimonial">
-          <p>“Fast delivery every time!” – Emma</p>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-undo"></i>
-        </div>
-        <h3>Easy Returns</h3>
-        <p>30-day return policy</p>
-        <div class="feature-testimonial">
-          <p>“Returning products was super easy.” – Liam</p>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-lock"></i>
-        </div>
-        <h3>Secure Payment</h3>
-        <p>100% secure checkout</p>
-        <div class="feature-testimonial">
-          <p>“I always feel safe paying here.” – Sophia</p>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-headset"></i>
-        </div>
-        <h3>24/7 Support</h3>
-        <p>Dedicated support</p>
-        <div class="feature-testimonial">
-          <p>“Customer service is amazing!” – Noah</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="newsletter">
-  <div class="container">
-    <div class="newsletter-content">
-      <h2>Stay Updated</h2>
-      <p>Subscribe to our newsletter for the latest releases and exclusive offers.</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit" class="btn-primary">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer class="modern-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col brand-col">
-        <div class="footer-logo">
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav class="saas-nav">
+        <a href="/" class="saas-logo">
           <span class="logo-icon">👟</span> PRIME STEP
+        </a>
+
+        <div class="saas-nav-links">
+          <a href="index.html" class="saas-nav-link active">Home</a>
+          <a href="shop.html" class="saas-nav-link">Shop</a>
+          <a href="about.html" class="saas-nav-link">About</a>
+          <a href="contact.html" class="saas-nav-link">Contact</a>
         </div>
-        <p class="footer-tagline">Premium footwear for every step of your journey.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        
+        <div class="nav-actions">
+          <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
+          <button class="mobile-menu-toggle" aria-label="Mobile menu">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
-      </div>
-      
-      <div class="footer-col">
-        <h4 class="footer-heading">Shop</h4>
-        <ul class="footer-links">
-          <li><a href="#">Men's Shoes</a></li>
-          <li><a href="#">Women's Shoes</a></li>
-          <li><a href="#">New Arrivals</a></li>
-          <li><a href="#">Best Sellers</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-col">
-        <h4 class="footer-heading">Company</h4>
-        <ul class="footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-      
+      </nav>
     </div>
-    
-    <div class="footer-bottom">
-      <div class="footer-copyright">
-        <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
-      </div>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies</a>
-        <a href="#">Accessibility</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Step into <span class="highlight">Style</span></h1>
+      <p class="hero-subtitle">Premium footwear crafted for comfort and performance</p>
+      <div class="hero-cta">
+        <a href="contact.html" class="btn-primary">Contact Us</a>
+        <a href="about.html" class="btn-secondary">Learn More</a>
       </div>
     </div>
-  </div>
-</footer>
 
-<script>
-// Dark mode toggle (unchanged)
-document.getElementById("modeToggle").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-});
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
 
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-}
+  <!-- STOCK COOLDOWN -->
+  <section class="stock-cooldown">
+    <div class="container">
+      <p>⚡ Clear Stock Cooldown!</p>
+      <div id="cooldown-timer">00:00:00</div>
+    </div>
+  </section>
 
-// Mobile menu toggle (unchanged)
-document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-    document.querySelector('.saas-nav-links').classList.toggle('active');
-});
+  <!-- CUSTOMER REVIEWS -->
+  <section class="customer-reviews">
+    <h2>Customer Reviews</h2>
+    <div class="reviews-slider">
+      <div class="review-card"><p>“Great shoes! Very comfortable and stylish.”</p><div class="reviewer-info">– Alice</div></div>
+      <div class="review-card"><p>“Fast delivery and excellent quality.”</p><div class="reviewer-info">– Bob</div></div>
+      <div class="review-card"><p>“I love PRIME STEP! My new go-to shoe brand.”</p><div class="reviewer-info">– Charlie</div></div>
+    </div>
+  </section>
 
-// Smooth scroll for anchor links (unchanged)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+  <!-- FEATURED PRODUCTS -->
+  <section id="featured" class="featured-products featured-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Category Product</h2>
+        <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="products">
 
-// ----- STOCK COOLDOWN TIMER -----
-const cooldownTimer = document.getElementById("cooldown-timer");
-if (cooldownTimer) {
-  // Set the target time for the cooldown (example: 2 hours from page load)
-  let targetTime = new Date();
-  targetTime.setHours(targetTime.getHours() + 2);
+        <!-- Sneaker -->
+        <div class="product-card sneaker-category">
+          <div class="product-badge">SNEAKER</div>
+          <img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&auto=format&fit=crop&q=60" alt="Nike Low Sneaker">
+          <div class="product-info">
+            <h3>Nike Low</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#000;"></span>
+                <span class="color-option" style="background-color:#fff; border:1px solid #ddd;"></span>
+                <span class="color-option" style="background-color:#e63946;"></span>
+              </div>
+              <div class="product-price">RM250.00</div>
+            </div>
+            <a href="shop.html" class="product-cta">Shop Now</a>
+          </div>
+        </div>
 
-  function updateCooldownTimer() {
-    const now = new Date().getTime();
-    const distance = targetTime - now;
+        <!-- Sport -->
+        <div class="product-card sport-category">
+          <div class="product-badge sale">SPORT</div>
+          <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&auto=format&fit=crop&q=60" alt="Adidas Originals Sport Shoes">
+          <div class="product-info">
+            <h3>Adidas Originals</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#e58d11;"></span>
+                <span class="color-option" style="background-color:#000;"></span>
+              </div>
+              <div class="product-price"><span class="original-price">RM559.99</span> RM499.99</div>
+            </div>
+            <a href="shop.html" class="product-cta">Shop Now</a>
+          </div>
+        </div>
 
-    if (distance <= 0) {
-      cooldownTimer.textContent = "⚡ Cooldown Finished!";
-      return;
-    }
+        <!-- Formal -->
+        <div class="product-card formal-category">
+          <div class="product-badge sale">FORMAL</div>
+          <img src="https://images.unsplash.com/photo-1696271026746-b55c30124d95?w=600&auto=format&fit=crop&q=60" alt="Cole Haan Oxfords">
+          <div class="product-info">
+            <h3>Cole Haan Oxfords</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#6e5318;"></span>
+                <span class="color-option" style="background-color:#000;"></span>
+              </div>
+              <div class="product-price">RM149.99</div>
+            </div>
+            <a href="shop.html" class="product-cta">Shop Now</a>
+          </div>
+        </div>
 
-    const hours = Math.floor(distance / 1000 / 60 / 60);
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      </div>
+    </div>
+  </section>
 
-    cooldownTimer.textContent = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-  }
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
 
-  setInterval(updateCooldownTimer, 1000);
-  updateCooldownTimer();
-}
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-truck"></i></div>
+          <h3>Free Shipping</h3>
+          <p>On all orders over $50</p>
+          <div class="feature-testimonial"><p>“Fast delivery every time!” – Emma</p></div>
+        </div>
 
-// ----- CUSTOMER REVIEWS SLIDER -----
-const slider = document.querySelector('.reviews-slider');
-// Duplicate the cards for infinite scroll effect
-slider.innerHTML += slider.innerHTML;
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-undo"></i></div>
+          <h3>Easy Returns</h3>
+          <p>30-day return policy</p>
+          <div class="feature-testimonial"><p>“Returning products was super easy.” – Liam</p></div>
+        </div>
 
-let scrollPos = 0;
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h3>Secure Payment</h3>
+          <p>100% secure checkout</p>
+          <div class="feature-testimonial"><p>“I always feel safe paying here.” – Sophia</p></div>
+        </div>
 
-function autoScroll() {
-  scrollPos += 1; // speed
-  if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0; // reset after half
-  slider.scrollLeft = scrollPos;
-}
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <h3>24/7 Support</h3>
+          <p>Dedicated support</p>
+          <div class="feature-testimonial"><p>“Customer service is amazing!” – Noah</p></div>
+        </div>
 
-let scrollInterval = setInterval(autoScroll, 20);
+      </div>
+    </div>
+  </section>
 
-// Pause on hover
-slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-slider.addEventListener('mouseleave', () => scrollInterval = setInterval(autoScroll, 20));
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest releases and exclusive offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-</script>
+  <!-- FOOTER -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col brand-col">
+          <div class="footer-logo"><span class="logo-icon">👟</span> PRIME STEP</div>
+          <p class="footer-tagline">Premium footwear for every step of your journey.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#">Men's Shoes</a></li>
+            <li><a href="#">Women's Shoes</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/index.js"></script>
 
 </body>
 </html>

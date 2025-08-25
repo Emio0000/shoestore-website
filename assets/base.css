@@ -1,0 +1,94 @@
+/* RESET + BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* HEADER & NAV */
+header {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.saas-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.saas-logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.saas-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.saas-nav-link {
+  position: relative;
+  padding: .3rem 0;
+  transition: color .3s;
+}
+.saas-nav-link:hover,
+.saas-nav-link.active { color: #e63946; }
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+}
+
+/* REUSABLE BUTTONS */
+.btn-primary, .btn-secondary {
+  padding: .75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all .3s;
+}
+.btn-primary {
+  background: #e63946;
+  color: #fff;
+}
+.btn-primary:hover { background: #c92f3b; }
+.btn-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: #fff;
+  color: #222;
+}
+
+/* DARK MODE BASE */
+.dark-mode {
+  background: #111;
+  color: #eee;
+}
+.dark-mode header,
+.dark-mode .product-card,
+.dark-mode .feature-card {
+  background: #1c1c1c;
+  color: #eee;
+}
+.dark-mode .newsletter { background: #222; }
+.dark-mode .btn-primary { background: #e63946; }

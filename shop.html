@@ -1,77 +1,191 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Shop | ShoeStore</title>
-      <link rel="stylesheet" href="./shop.css">
-    </head>
-    <body>
-      <header>
-        <div class="container">
-            <nav class="saas-nav">
-              <a href="index.html" class="saas-logo">
-                <span class="logo-icon">👟</span> PRIME STEP</a>
-              <div class="saas-nav-links">
-                <a href="index.html" class="saas-nav-link">Home</a>
-                <a href="shop.html" class="saas-nav-link">Shop</a>
-                <a href="about.html" class="saas-nav-link">About</a>
-                <a href="contact.html" class="saas-nav-link">Contact</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | PRIME STEP</title>
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/shop.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav class="saas-nav">
+        <a href="index.html" class="saas-logo">
+          <span class="logo-icon">👟</span> PRIME STEP
+        </a>
+        <div class="saas-nav-links">
+          <a href="index.html" class="saas-nav-link">Home</a>
+          <a href="shop.html" class="saas-nav-link active">Shop</a>
+          <a href="about.html" class="saas-nav-link">About</a>
+          <a href="contact.html" class="saas-nav-link">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
+          <button class="mobile-menu-toggle" aria-label="Mobile menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="shop-section">
+    <h2 class="shop-section-title">Our Collection</h2>
+    <div class="shop-container">
+      <div class="products-grid">
+
+        <!-- Product 1 -->
+        <div class="shop-product-card">
+          <div class="product-badge new">NEW</div>
+          <img src="https://images.unsplash.com/photo-1555972635-8a10402b49b2?q=80&w=985&auto=format&fit=crop" alt="Sport Trainers">
+          <div class="shop-product-info">
+            <h3>Sport Trainers</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#000;"></span>
+                <span class="color-option" style="background-color:#fff; border:1px solid #ddd;"></span>
+                <span class="color-option" style="background-color:#e63946;"></span>
               </div>
-              <div class="nav-actions">
-        <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
-        <button class="mobile-menu-toggle" aria-label="Mobile menu">
-          <i class="fas fa-bars"></i>
-        </button>
+              <div class="shop-product-price">RM 130</div>
+            </div>
+            <button class="product-cta">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="shop-product-card">
+          <div class="product-badge sale">SALE</div>
+          <img src="https://images.unsplash.com/photo-1599012307605-23a0ebe4d321?q=80&w=987&auto=format&fit=crop" alt="Leather Boots">
+          <div class="shop-product-info">
+            <h3>Leather Boots</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#6e5318;"></span>
+                <span class="color-option" style="background-color:#000;"></span>
+              </div>
+              <div class="shop-product-price">
+                <span class="original-price">RM 250</span> RM 220
+              </div>
+            </div>
+            <button class="product-cta">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="shop-product-card">
+          <img src="https://images.unsplash.com/photo-1601997354917-c33e09c71fa3?q=80&w=3132&auto=format&fit=crop" alt="Canvas Sneakers">
+          <div class="shop-product-info">
+            <h3>Canvas Sneakers</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#e58d11;"></span>
+                <span class="color-option" style="background-color:#000;"></span>
+                <span class="color-option" style="background-color:#0C6F86;"></span>
+              </div>
+              <div class="shop-product-price">RM 90</div>
+            </div>
+            <button class="product-cta">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="shop-product-card">
+          <div class="product-badge new">POPULAR</div>
+          <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=2070&auto=format&fit=crop" alt="High Heels">
+          <div class="shop-product-info">
+            <h3>High Heels</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#000;"></span>
+                <span class="color-option" style="background-color:#e63946;"></span>
+                <span class="color-option" style="background-color:#fff; border:1px solid #ddd;"></span>
+              </div>
+              <div class="shop-product-price">RM 150</div>
+            </div>
+            <button class="product-cta">Add to Cart</button>
+          </div>
+        </div>
+
       </div>
-        </nav>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SECTION -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest releases and exclusive offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="product-cta">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINIMAL FOOTER -->
+  <footer class="minimal-footer">
+    <div class="container">
+      <div class="minimal-footer-content">
+        <div class="minimal-footer-logo">
+          <span class="logo-icon">👟</span> PRIME STEP
         </div>
-        </header>
-        <section class="section-background">
-          <img src="https://images.unsplash.com/photo-1633464130613-0a9154299ac2?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img-section-shop">
-        
-        </section>
-    <h2 style="text-align: center; font-size: 40px; margin-top: 70px;">Our Collection</h2>
-    <div class="body-container">
-      <div class="products">
-        <div class="first-coll">
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1555972635-8a10402b49b2?q=80&w=985&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoe 1">
-            <h3 style="font-size: 30px;">Sport Trainers</h3>
-            <p style="font-size: 25px;">RM 130</p>
-            <button class="button-27" role="button">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1599012307605-23a0ebe4d321?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoe 2">
-            <h3 style="font-size: 30px;">Leather Boots</h3>
-            <p style="font-size: 25px;">RM 220</p>
-            <button class="button-27">Add to Cart</button>
+        <p class="minimal-footer-tagline">Premium footwear for every step of your journey.</p>
+      </div>
+
+      <div class="minimal-footer-columns">
+        <div class="minimal-footer-col">
+          <h4>Shop</h4>
+          <div class="minimal-footer-links">
+            <a href="#">Men's Shoes</a>
+            <a href="#">Women's Shoes</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Best Sellers</a>
           </div>
         </div>
-        <div class="sec-coll">
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1601997354917-c33e09c71fa3?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoe 3">
-            <h3 style="font-size: 30px;">Canvas Sneakers</h3>
-            <p style="font-size: 25px;">RM 90</p>
-            <button class="button-27">Add to Cart</button>
+        <div class="minimal-footer-col">
+          <h4>Company</h4>
+          <div class="minimal-footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact Us</a>
           </div>
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoe 4">
-            <h3 style="font-size: 30px;">High Heels</h3>
-            <p style="font-size: 25px;">RM 150</p>
-            <button class="button-27">Add to Cart</button>
-          </div>
+        </div>
+      </div>
+
+      <div class="minimal-footer-divider"></div>
+
+      <div class="minimal-footer-bottom">
+        <div class="minimal-footer-copyright">
+          <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
+        </div>
+        <div class="minimal-footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+          <a href="#">Accessibility</a>
         </div>
       </div>
     </div>
-    <footer>
-      <p style="text-align: center;">&copy; 2025 ShoeStore. All rights reserved.</p>
-    </footer>
-    <script>
-      const toggleBtn = document.getElementById('modeToggle');
-      toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-      });
-    </script>
-    </body>
-    </html>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/index.js"></script>
+
+</body>
+</html>

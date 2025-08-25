@@ -57,36 +57,31 @@
   max-width: 1000px;
   margin: auto;
   text-align: center;
-  background: #1a1a1a; /* dark grey background */
-  color: #eee;
-  border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
+
 .about-content h2 {
-  color: #ff6600;
+  color: #ff6600;         /* nice orange */
   margin-top: 30px;
+  font-size: 2.2rem;      /* bigger font */
+  font-weight: 700;       /* bolder */
+  letter-spacing: 1px;    /* spacing for modern look */
+  text-transform: uppercase; /* all caps */
+  position: relative;     /* needed for tick placement */
+  display: inline-block;  /* keeps text and tick inline */
+  padding-left: 30px;     /* space for tick */
 }
-.about-content p, .about-content ul {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  color: #ddd;
-}
-.about-content ul {
-  list-style: none;
-  padding: 0;
-}
-.about-content ul li {
-  margin: 10px 0;
-  position: relative;
-  padding-left: 20px;
-}
-.about-content ul li::before {
-  content: "✔";
+
+.about-content h2::before {
+  content: "✔";          /* tick symbol */
   position: absolute;
   left: 0;
-  color: #ff6600;
+  color: #28a745;        /* green tick */
+  font-size: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+
 
 /* Fade-in animation */
 .fade-in {

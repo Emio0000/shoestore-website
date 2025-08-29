@@ -15,18 +15,142 @@
   <style>
     html { scroll-behavior: smooth; }
     
+    /* Enhanced Dark Mode Toggle Styles */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    #modeToggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #modeToggle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    
+    #modeToggle:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+    
+    #modeToggle:hover::before {
+      opacity: 0.1;
+    }
+    
+    body.dark-mode #modeToggle:hover::before {
+      opacity: 0.2;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff9e6b 100%);
+    }
+    
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: inherit;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    body.dark-mode .mobile-menu-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .saas-nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+      
+      body.dark-mode .saas-nav-links {
+        background: #2a2a2a;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      }
+      
+      .saas-nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+      
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .saas-nav-link {
+        padding: 0.8rem 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
     /* NEWSLETTER STYLES FROM INDEX.CSS */
     .newsletter {
       background: #FF6B6B;
       color: #0e0e0e;
       padding: 4rem 1rem;
       text-align: center;
+      transition: background 0.3s ease;
     }
     
     .newsletter-content h2 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: #fff;
+      transition: color 0.3s ease;
     }
     
     .newsletter-content p {
@@ -36,6 +160,7 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      transition: color 0.3s ease;
     }
     
     .newsletter-form {
@@ -52,6 +177,8 @@
       border: none;
       width: 300px;
       font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      transition: background 0.3s ease, color 0.3s ease;
     }
     
     .newsletter-form button {
@@ -68,6 +195,24 @@
     
     .newsletter-form button:hover {
       background: #000;
+    }
+    
+    /* Dark mode newsletter styles */
+    body.dark-mode .newsletter {
+      background: linear-gradient(135deg, #ff5252, #ff8a6b);
+    }
+    
+    body.dark-mode .newsletter-content p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    body.dark-mode .newsletter-form input {
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+    
+    body.dark-mode .newsletter-form input::placeholder {
+      color: #ccc;
     }
     
     @media (max-width: 768px) {
@@ -88,6 +233,7 @@
       color: #ddd;
       padding: 3rem 1.5rem;
       margin-top: auto;
+      transition: background 0.3s ease;
     }
     
     .footer-container {
@@ -112,6 +258,7 @@
       margin-bottom: 1rem;
       font-weight: 600;
       color: #fff;
+      transition: color 0.3s ease;
     }
     
     .footer-links {
@@ -178,6 +325,23 @@
     .footer-copyright {
       color: #aaa;
       font-size: .9rem;
+    }
+    
+    /* Dark mode footer styles */
+    body.dark-mode .modern-footer {
+      background: #0a0a0a;
+    }
+    
+    body.dark-mode .footer-links a {
+      color: #bbb;
+    }
+    
+    body.dark-mode .social-links a {
+      color: #bbb;
+    }
+    
+    body.dark-mode .footer-legal a {
+      color: #888;
     }
     
     @media (max-width: 768px) {
@@ -302,7 +466,7 @@
         
         <!-- Product 5 -->
         <div class="shop-product-card">
-          <img src="https://images.pexels.com/photos-2529148/pexels-photo-2529148.jpeg" alt="Canvas Sneakers">
+          <img src="https://media.istockphoto.com/id/2149951279/photo/a-pair-of-sneakers-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=-woH4zk3o7MQ3XqffnpDPzGwY7I2_02xkwrIjQ56qOc=" alt="Daily Sneakers">
           <div class="shop-product-info">
             <h3>Daily Sneakers</h3>
             <div class="product-meta">
@@ -394,8 +558,53 @@
     </div>
   </footer>
 
-  <!-- JS -->
-  <script src="assets/index.js"></script>
+  <!-- Enhanced Dark Mode Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modeToggle = document.getElementById('modeToggle');
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.saas-nav-links');
+      
+      // Dark mode functionality
+      if (modeToggle) {
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+          document.body.classList.add('dark-mode');
+          modeToggle.setAttribute('aria-pressed', 'true');
+        }
+        
+        modeToggle.addEventListener('click', function() {
+          const isDarkMode = document.body.classList.toggle('dark-mode');
+          localStorage.setItem('darkMode', isDarkMode);
+          modeToggle.setAttribute('aria-pressed', isDarkMode);
+          
+          // Add animation class for smooth transition
+          document.documentElement.classList.add('transition-mode');
+          setTimeout(() => {
+            document.documentElement.classList.remove('transition-mode');
+          }, 500);
+        });
+      }
+      
+      // Mobile menu functionality
+      if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function() {
+          const isExpanded = navLinks.classList.toggle('active');
+          mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (navLinks.classList.contains('active') && 
+              !event.target.closest('.saas-nav-links') && 
+              !event.target.closest('.mobile-menu-toggle')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

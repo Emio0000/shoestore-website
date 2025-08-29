@@ -11,6 +11,7 @@
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+  transition: background 0.3s ease;
 }
 .hero-title {
   position: relative;
@@ -26,14 +27,16 @@
 /* Video Section */
 .about-video {
   text-align: center;
-  margin: 0; /* remove space */
-  background: #111; /* dark background */
+  margin: 0;
+  background: #111;
   padding: 40px 0;
+  transition: background 0.3s ease;
 }
 .about-video h2 {
   margin-bottom: 20px;
   font-size: 2rem;
   color: #ff6600;
+  transition: color 0.3s ease;
 }
 .video-container {
   position: relative;
@@ -60,28 +63,28 @@
 }
 
 .about-content h2 {
-  color: #ff6600;         /* nice orange */
+  color: #ff6600;
   margin-top: 30px;
-  font-size: 2.2rem;      /* bigger font */
-  font-weight: 700;       /* bolder */
-  letter-spacing: 1px;    /* spacing for modern look */
-  text-transform: uppercase; /* all caps */
-  position: relative;     /* needed for tick placement */
-  display: inline-block;  /* keeps text and tick inline */
-  padding-left: 30px;     /* space for tick */
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .about-content h2::before {
-  content: "✔";          /* tick symbol */
+  content: "✔";
   position: absolute;
   left: 0;
-  color: #28a745;        /* green tick */
+  color: #28a745;
   font-size: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
-
 
 /* Fade-in animation */
 .fade-in {
@@ -111,10 +114,12 @@
   padding: 70px 20px;
   text-align: center;
   background: linear-gradient(135deg, #FF6B6B, #FF6B6B);
+  transition: background 0.3s ease;
 }
 .newsletter h2 {
   font-size: 2rem;
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 .newsletter-form {
   margin-top: 20px;
@@ -137,7 +142,7 @@
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .btn-primary:hover {
   background: #333;
@@ -148,6 +153,7 @@
   background: #000;
   color: #eee;
   padding: 60px 20px 20px;
+  transition: background 0.3s ease;
 }
 .footer-grid {
   display: flex;
@@ -166,6 +172,7 @@
 .footer-tagline {
   font-size: 0.95rem;
   color: #bbb;
+  transition: color 0.3s ease;
 }
 .social-links a {
   color: #fff;
@@ -180,6 +187,7 @@
   margin-bottom: 12px;
   font-size: 1.2rem;
   color: #fff;
+  transition: color 0.3s ease;
 }
 .footer-links {
   list-style: none;
@@ -213,4 +221,138 @@
 }
 .footer-legal a:hover {
   color: #ff6600;
+}
+
+/* Enhanced Dark Mode Styles for About Page */
+body.dark-mode .about-hero .hero-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.8));
+}
+
+body.dark-mode .about-content h2,
+body.dark-mode .about-content p,
+body.dark-mode .about-content ul li {
+  color: #f0f0f0;
+}
+
+body.dark-mode .about-content h2::before {
+  color: #4ade80;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+body.dark-mode .about-content h2:hover,
+body.dark-mode .about-content p:hover,
+body.dark-mode .about-content ul li:hover {
+  color: #fff;
+  text-shadow: 0 0 12px #ff6b6b, 0 0 20px #ff6b6b;
+}
+
+body.dark-mode .newsletter {
+  background: linear-gradient(135deg, #ff5252, #ff8a6b);
+}
+
+body.dark-mode .newsletter-content h2 {
+  color: #fff;
+}
+
+body.dark-mode .newsletter-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .btn-primary {
+  background: #0a0a0a;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .btn-primary:hover {
+  background: #2a2a2a;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .modern-footer {
+  background: #0a0a0a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .footer-heading {
+  color: #fff;
+}
+
+body.dark-mode .footer-links a {
+  color: #bbb;
+}
+
+body.dark-mode .footer-links a:hover {
+  color: #ff6b6b;
+}
+
+body.dark-mode .social-links a {
+  color: #ddd;
+}
+
+body.dark-mode .social-links a:hover {
+  color: #ff6b6b;
+}
+
+body.dark-mode .footer-legal a {
+  color: #999;
+}
+
+body.dark-mode .footer-legal a:hover {
+  color: #ff6b6b;
+}
+
+body.dark-mode .about-video {
+  background: #0a0a0a;
+}
+
+body.dark-mode .about-video h2 {
+  color: #fff;
+}
+
+/* Smooth transitions for dark mode */
+.about-content h2,
+.about-content p,
+.about-content ul li,
+.newsletter,
+.modern-footer {
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark mode transition for the entire page */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .footer-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-legal a {
+    margin: 0;
+  }
 }

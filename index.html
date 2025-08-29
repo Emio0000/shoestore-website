@@ -15,6 +15,65 @@
 
   <style>
     html { scroll-behavior: smooth; }
+    
+    /* Additional styles for the hero with cooldown */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem 0;
+      /* Removed invalid 'origin' property */
+    }
+    
+    .cooldown-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      z-index: 10;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    #cooldown-timer {
+      font-weight: 700;
+      color: #e63946;
+      font-size: 1.1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .cooldown-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 15px;
+      }
+      
+      .hero-content {
+        margin-top: 60px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -44,8 +103,14 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO with Cooldown Timer -->
   <section class="hero">
+    <!-- Cooldown Timer in Hero -->
+    <div class="cooldown-container">
+      <span>⚡ Clear Stock Cooldown!</span>
+      <div id="cooldown-timer">00:00:00</div>
+    </div>
+
     <div class="hero-content">
       <h1>Step into <span class="highlight">Style</span></h1>
       <p class="hero-subtitle">Premium footwear crafted for comfort and performance</p>
@@ -57,14 +122,6 @@
 
     <div class="scroll-indicator">
       <i class="fas fa-chevron-down"></i>
-    </div>
-  </section>
-
-  <!-- STOCK COOLDOWN -->
-  <section class="stock-cooldown">
-    <div class="container">
-      <p>⚡ Clear Stock Cooldown!</p>
-      <div id="cooldown-timer">00:00:00</div>
     </div>
   </section>
 
@@ -248,6 +305,35 @@
 
   <!-- JS -->
   <script src="assets/index.js"></script>
+  
+  <!-- Cooldown Timer Script -->
+  <script>
+    const countDownDate = new Date();
+    countDownDate.setHours(countDownDate.getHours() + 24);
+
+    const x = setInterval(function() {
+    
+      const now = new Date().getTime();
+      
+      const distance = countDownDate - now;
+      
+      
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+  
+      document.getElementById("cooldown-timer").innerHTML = 
+        (hours < 10 ? "0" : "") + hours + ":" + 
+        (minutes < 10 ? "0" : "") + minutes + ":" + 
+        (seconds < 10 ? "0" : "") + seconds;
+      
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("cooldown-timer").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>

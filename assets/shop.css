@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #0C6F86;
-  --secondary-color: #095363;
+  --primary-color: #FF6B6B;
+  --secondary-color: #0a0a0a;
   --accent-color: #FF6B6B;
   --light-gray: #f8f9fa;
   --medium-gray: #e9ecef;
@@ -14,8 +14,8 @@
 }
 
 body.dark-mode {
-  --primary-color: #4ECDC4;
-  --secondary-color: #3BA99C;
+  --primary-color: #FF6B6B;
+  --secondary-color: #070707;
   --light-gray: #2d2d2d;
   --medium-gray: #3d3d3d;
   --dark-gray: #e9ecef;

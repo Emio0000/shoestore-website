@@ -14,6 +14,187 @@
 
   <style>
     html { scroll-behavior: smooth; }
+    
+    /* NEWSLETTER STYLES FROM INDEX.CSS */
+    .newsletter {
+      background: #FF6B6B;
+      color: #0e0e0e;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    
+    .newsletter-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    .newsletter-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: rgba(0, 0, 0, 0.8);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .newsletter-form {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    
+    .newsletter-form input {
+      padding: .8rem 1rem;
+      border-radius: 6px;
+      border: none;
+      width: 300px;
+      font-size: 1rem;
+    }
+    
+    .newsletter-form button {
+      border: none;
+      cursor: pointer;
+      padding: 0.8rem 1.5rem;
+      background: #0c0c0c;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      background: #000;
+    }
+    
+    @media (max-width: 768px) {
+      .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .newsletter-form input {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    /* Footer Styles */
+    .modern-footer {
+      background: #111;
+      color: #ddd;
+      padding: 3rem 1.5rem;
+      margin-top: auto;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    .footer-heading {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: .5rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #FF6B6B;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      color: #ddd;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: #FF6B6B;
+    }
+    
+    .footer-bottom {
+      margin-top: 2rem;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-legal a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: .9rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-legal a:hover {
+      color: #fff;
+    }
+    
+    .footer-copyright {
+      color: #aaa;
+      font-size: .9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-legal {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -118,9 +299,10 @@
             <button class="product-cta">Add to Cart</button>
           </div>
         </div>
- <!-- Product 5 -->
+        
+        <!-- Product 5 -->
         <div class="shop-product-card">
-          <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Canvas Sneakers">
+          <img src="https://images.pexels.com/photos-2529148/pexels-photo-2529148.jpeg" alt="Canvas Sneakers">
           <div class="shop-product-info">
             <h3>Daily Sneakers</h3>
             <div class="product-meta">
@@ -136,7 +318,6 @@
         </div>
       </div>
     </div>
-    
   </section>
 
   <!-- NEWSLETTER SECTION -->
@@ -147,50 +328,63 @@
         <p>Subscribe to our newsletter for the latest releases and exclusive offers.</p>
         <form class="newsletter-form">
           <input type="email" placeholder="Your email address" required>
-          <button type="submit" class="product-cta">Subscribe</button>
+          <button type="submit">Subscribe</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- MINIMAL FOOTER -->
-  <footer class="minimal-footer">
-    <div class="container">
-      <div class="minimal-footer-content">
-        <div class="minimal-footer-logo">
-          <span class="logo-icon">👟</span> PRIME STEP
-        </div>
-        <p class="minimal-footer-tagline">Premium footwear for every step of your journey.</p>
-      </div>
-
-      <div class="minimal-footer-columns">
-        <div class="minimal-footer-col">
-          <h4>Shop</h4>
-          <div class="minimal-footer-links">
-            <a href="#">Men's Shoes</a>
-            <a href="#">Women's Shoes</a>
-            <a href="#">New Arrivals</a>
-            <a href="#">Best Sellers</a>
+  <!-- MODERN FOOTER -->
+  <footer class="modern-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">PRIME STEP</div>
+          <p>Premium footwear for every step of your journey.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
           </div>
         </div>
-        <div class="minimal-footer-col">
-          <h4>Company</h4>
-          <div class="minimal-footer-links">
-            <a href="#">About Us</a>
-            <a href="#">Sustainability</a>
-            <a href="#">Careers</a>
-            <a href="#">Contact Us</a>
-          </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#">Men's Shoes</a></li>
+            <li><a href="#">Women's Shoes</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
         </div>
       </div>
-
-      <div class="minimal-footer-divider"></div>
-
-      <div class="minimal-footer-bottom">
-        <div class="minimal-footer-copyright">
-          <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2025 PRIME STEP. All rights reserved.
         </div>
-        <div class="minimal-footer-legal">
+        <div class="footer-legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
           <a href="#">Cookies</a>

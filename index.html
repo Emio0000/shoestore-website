@@ -16,6 +16,128 @@
   <style>
     html { scroll-behavior: smooth; }
     
+    /* Enhanced Dark Mode Toggle Styles */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    #modeToggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #modeToggle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    
+    #modeToggle:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+    
+    #modeToggle:hover::before {
+      opacity: 0.1;
+    }
+    
+    body.dark-mode #modeToggle:hover::before {
+      opacity: 0.2;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff9e6b 100%);
+    }
+    
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: inherit;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    body.dark-mode .mobile-menu-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .saas-nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+      
+      body.dark-mode .saas-nav-links {
+        background: #2a2a2a;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      }
+      
+      .saas-nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+      
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .saas-nav-link {
+        padding: 0.8rem 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
     /* Additional styles for the hero with cooldown */
     .hero {
       position: relative;
@@ -26,7 +148,27 @@
       text-align: center;
       color: white;
       padding: 2rem 0;
-      /* Removed invalid 'origin' property */
+      background: url("https://images.unsplash.com/photo-1545179767-1198fd4a3e1b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0") no-repeat center/cover;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      transition: background 0.3s ease;
+    }
+    
+    body.dark-mode .hero::before {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
     
     .cooldown-container {
@@ -44,6 +186,12 @@
       font-weight: 600;
       z-index: 10;
       animation: pulse 2s infinite;
+    }
+    
+    body.dark-mode .cooldown-container {
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     
     @keyframes pulse {
@@ -303,8 +451,53 @@
     </div>
   </footer>
 
-  <!-- JS -->
-  <script src="assets/index.js"></script>
+  <!-- Enhanced Dark Mode Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modeToggle = document.getElementById('modeToggle');
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.saas-nav-links');
+      
+      // Dark mode functionality
+      if (modeToggle) {
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+          document.body.classList.add('dark-mode');
+          modeToggle.setAttribute('aria-pressed', 'true');
+        }
+        
+        modeToggle.addEventListener('click', function() {
+          const isDarkMode = document.body.classList.toggle('dark-mode');
+          localStorage.setItem('darkMode', isDarkMode);
+          modeToggle.setAttribute('aria-pressed', isDarkMode);
+          
+          // Add animation class for smooth transition
+          document.documentElement.classList.add('transition-mode');
+          setTimeout(() => {
+            document.documentElement.classList.remove('transition-mode');
+          }, 500);
+        });
+      }
+      
+      // Mobile menu functionality
+      if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function() {
+          const isExpanded = navLinks.classList.toggle('active');
+          mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (navLinks.classList.contains('active') && 
+              !event.target.closest('.saas-nav-links') && 
+              !event.target.closest('.mobile-menu-toggle')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+  </script>
   
   <!-- Cooldown Timer Script -->
   <script>

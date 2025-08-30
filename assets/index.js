@@ -22,13 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function animate() {
-    const slideWidth = getSlideWidth();
-    const totalOriginalWidth = slideWidth * slideCount;
+  const slideWidth = getSlideWidth();
+  const totalOriginalWidth = slideWidth * slideCount;
 
+  const isMobile = window.innerWidth <= 767; // detect mobile
+
+  if (isMobile) {
+    // On mobile: no auto-slide, let user scroll manually
+    slider.style.transform = `translateX(0)`; 
+  } else {
+    // Original desktop sliding behavior
     position -= speed;
 
     // Smooth repeat without jump
-    if (Math.abs(position) >= totalOriginalWidth) {
+    if (Math.abs(position) >= totalOriginalWidth) 
       position = 0; 
     }
 

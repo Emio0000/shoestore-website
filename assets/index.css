@@ -204,16 +204,31 @@ body.dark-mode .customer-reviews h2 {
 }
 
 /* Mobile: horizontal slider with one card visible */
-
 @media (max-width: 767px) {
   .reviews-slider {
-    overflow-x: hidden;
-    flex-wrap: nowrap;  
+    display: flex;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enables snap-to-point scrolling */
+    scroll-behavior: smooth; /* Makes scrolling smooth */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    flex-wrap: nowrap;
+    gap: 1rem; /* Space between cards */
+    padding: 0.5rem 0; /* Optional: adds a little vertical padding */
   }
 
   .review-card {
-    flex: 0 0 90%;      
-    max-width: none;
+    flex: 0 0 calc(90% - 1rem); /* 90% width minus half the gap */
+    scroll-snap-align: center; /* Snap cards to the center */
+    margin: 0; /* Remove margin if using gap */
+  }
+
+  /* Hides the scrollbar for a cleaner look (optional) */
+  .reviews-slider::-webkit-scrollbar {
+    display: none;
+  }
+  .reviews-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }
 

@@ -186,13 +186,13 @@ body.dark-mode .review-card {
     flex-wrap: nowrap !important;
     width: max-content !important;
     gap: 16px !important;
-    padding: 0 10% !important; /* add left/right padding */
+    padding: 0 1rem !important; /* optional small padding */
   }
 
   .review-card {
-    flex: 0 0 60% !important;  /* smaller for better spacing */
-    min-width: 60% !important;
-    max-width: 60% !important;
+    flex: 0 0 220px !important;  /* same as desktop */
+    min-width: 220px !important;
+    max-width: 220px !important;
     scroll-snap-align: center !important; /* center each card */
   }
 
@@ -201,6 +201,8 @@ body.dark-mode .review-card {
     transform: none !important;
   }
 }
+
+
 
 /* PRODUCTS */
 .featured-section { 

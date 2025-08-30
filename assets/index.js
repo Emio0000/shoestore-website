@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let animationId;
   let position = 0;
-  const speed = 0.3; 
+  const speed = 0.3;
 
   function getSlideWidth() {
     const firstSlide = slides[0];
@@ -22,24 +22,30 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function animate() {
-  const slideWidth = getSlideWidth();
-  const totalOriginalWidth = slideWidth * slideCount;
+    const slideWidth = getSlideWidth();
+    const totalOriginalWidth = slideWidth * slideCount;
 
-  const isMobile = window.innerWidth <= 767; // detect mobile
+    if (window.innerWidth <= 767) {
+      // Mobile: show one card at a time smoothly
+      const mobileSlideWidth = slideWidth; // full width of one card
+      position -= speed;
 
-  if (isMobile) {
-    // On mobile: no auto-slide, let user scroll manually
-    slider.style.transform = `translateX(0)`; 
-  } else {
-    // Original desktop sliding behavior
-    position -= speed;
+      if (Math.abs(position) >= totalOriginalWidth) {
+        position = 0;
+      }
 
-    // Smooth repeat without jump
-    if (Math.abs(position) >= totalOriginalWidth) 
-      position = 0; 
+      slider.style.transform = `translateX(${position}px)`;
+    } else {
+      // Desktop: original smooth auto-slide
+      position -= speed;
+
+      if (Math.abs(position) >= totalOriginalWidth) {
+        position = 0;
+      }
+
+      slider.style.transform = `translateX(${position}px)`;
     }
 
-    slider.style.transform = `translateX(${position}px)`;
     animationId = requestAnimationFrame(animate);
   }
 
@@ -64,18 +70,17 @@ document.addEventListener('DOMContentLoaded', function() {
     animationId = requestAnimationFrame(animate);
   });
 
-  // Dark / Light mode toggle 
+  // Dark / Light mode toggle
   const modeToggle = document.getElementById('modeToggle');
   if (modeToggle) {
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark-mode');
       modeToggle.setAttribute('aria-pressed', 'true');
     } else {
-      document.body.classList.remove('dark-mode'); 
+      document.body.classList.remove('dark-mode');
       modeToggle.setAttribute('aria-pressed', 'false');
     }
 
-    // Toggle dark/light mode
     modeToggle.addEventListener('click', function() {
       const isDarkMode = document.body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', isDarkMode);
@@ -87,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  //  Cooldown Timer 
+  // Cooldown Timer
   const cooldownTimer = document.getElementById("cooldown-timer");
   if (cooldownTimer) {
     let targetTime = new Date();
@@ -113,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCooldownTimer();
   }
 
-  // Mobile Menu Toggle 
+  // Mobile Menu Toggle
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const navLinks = document.querySelector('.saas-nav-links');
   if (mobileMenuToggle && navLinks) {

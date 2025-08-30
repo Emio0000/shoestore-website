@@ -203,20 +203,19 @@ body.dark-mode .customer-reviews h2 {
   }
 }
 
-/* Mobile version*/
+/* Mobile: 1 review at a time */
 @media (max-width: 767px) {
-  .reviews-slider {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; /
+  .review-card {
+    width: 90%; /* one card almost full width */
+    flex: 0 0 90%;
+    margin: 0 auto;
   }
 
-  .review-card {
-    width: 90%; 
-    flex: 0 0 90%;
-    scroll-snap-align: start; 
-    margin: 0 auto; 
+  .reviews-slider {
+    gap: 1rem; /* optional spacing between cards */
   }
 }
+
 
 
 /* Dark mode adjustments */

@@ -189,27 +189,36 @@ body.dark-mode .customer-reviews h2 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Mobile: horizontal slider with one card visible */
+/* Mobile styles - will only apply below 768px */
 @media (max-width: 767px) {
-  .reviews-slider-container {
-    width: 100%;
-    overflow: hidden; /* This hides the other cards */
-    position: relative;
+  .reviews-slider-container.mobile-slider {
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
   }
-
-  .reviews-slider {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    width: max-content; /* Let the content define the width */
-    transition: transform 0.3s ease; /* For smooth sliding if using JS */
+  
+  .reviews-slider-container.mobile-slider::-webkit-scrollbar {
+    display: none !important;
   }
-
-  .review-card {
-    flex: 0 0 90%; /* Force each card to be 90% of container width */
-    scroll-snap-align: start;
-    margin: 0 auto; /* This centers the card in the viewport */
-    transform: translateX(0); /* Reset any transform */
+  
+  .reviews-slider.mobile-slider {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    gap: 15px;
+    padding: 10px 5%;
+  }
+  
+  .review-card.mobile-slider {
+    flex: 0 0 90% !important;
+    min-width: 90% !important;
+    max-width: 90% !important;
+    scroll-snap-align: center !important;
+    margin: 0 !important;
   }
 }
 

@@ -203,20 +203,20 @@ body.dark-mode .customer-reviews h2 {
   }
 }
 
-/* Mobile: 1 review at a time */
+/* Mobile: horizontal slider with one card visible */
+
 @media (max-width: 767px) {
-  .review-card {
-    width: 90%; /* one card almost full width */
-    flex: 0 0 90%;
-    margin: 0 auto;
+  .reviews-slider {
+    display: flex;
+    flex-wrap: nowrap;  
+    gap: 1rem;
   }
 
-  .reviews-slider {
-    gap: 1rem; /* optional spacing between cards */
+  .review-card {
+    flex: 0 0 90%;      
+    max-width: 90%;
   }
 }
-
-
 
 /* Dark mode adjustments */
 body.dark-mode .review-card {

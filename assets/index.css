@@ -91,42 +91,6 @@
   color: #fff;
 }
 
-/* CUSTOMER REVIEWS */
-.customer-reviews {
-  padding: 4rem 1rem;
-  background: #FF6B6B;
-  text-align: center;
-  transition: var(--transition);
-  overflow: hidden; 
-}
-
-/* Light mode (default) */
-.customer-reviews h2 {
-  margin-bottom: 2rem;
-  color: #000000; 
-  transition: color 0.3s ease;
-}
-
-/* Dark mode */
-body.dark-mode .customer-reviews h2 {
-  color: var(--text-color-dark); 
-}
-
-update that inside my css
-
-/* Reviews slider container */
-.reviews-slider {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  padding-right: 1rem;
-  will-change: transform;
-  scroll-behavior: smooth;
-  overflow-x: auto; /* allow horizontal scroll on mobile */
-  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-}
-
-
 /* === CUSTOMER REVIEWS SECTION === */
 .customer-reviews {
   padding: 4rem 1rem;
@@ -209,17 +173,11 @@ body.dark-mode .review-card {
   }
 }
 
-/* === MOBILE SLIDER (swipe mode) === */
+/* === MOBILE SLIDER (swipe + auto-scroll) === */
 @media (max-width: 767px) {
   .reviews-container {
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-  .reviews-container::-webkit-scrollbar {
-    display: none !important;
+    overflow-x: hidden !important; /* let JS handle loop */
+    position: relative;
   }
 
   .reviews-slider {
@@ -227,15 +185,14 @@ body.dark-mode .review-card {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     width: max-content !important;
-    gap: 20px !important;
-    padding: 20px 5% !important;
+    gap: 16px !important;
+    padding: 0 1rem !important;
   }
 
   .review-card {
-    flex: 0 0 85% !important;
-    min-width: 85% !important;
-    max-width: 85% !important;
-    scroll-snap-align: center !important;
+    flex: 0 0 75% !important;  /* smaller than 85% so scroll has space */
+    min-width: 75% !important;
+    max-width: 75% !important;
   }
 
   /* disable hover zoom on mobile */

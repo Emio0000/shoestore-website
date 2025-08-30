@@ -1,554 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Reviews Carousel with Dark Mode</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIME STEP | Premium Footwear</title>
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="assets/base.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="assets/index.css">
+  <script src="assets/index.js" defer></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    
+    /* Enhanced Dark Mode Toggle Styles */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    #modeToggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #modeToggle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    
+    #modeToggle:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+    
+    #modeToggle:hover::before {
+      opacity: 0.1;
+    }
+    
+    body.dark-mode #modeToggle:hover::before {
+      opacity: 0.2;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff9e6b 100%);
+    }
+    
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: inherit;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    body.dark-mode .mobile-menu-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .saas-nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+      
+      body.dark-mode .saas-nav-links {
+        background: #2a2a2a;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      }
+      
+      .saas-nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+      
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
         }
-        
-        :root {
-            --bg-gradient-start: #f5f7fa;
-            --bg-gradient-end: #c3cfe2;
-            --text-primary: #2c3e50;
-            --text-secondary: #7f8c8d;
-            --card-bg: white;
-            --card-shadow: rgba(0, 0, 0, 0.1);
-            --star-color: #FFD700;
-            --review-text: #555;
-            --reviewer-name: #333;
-            --reviewer-title: #888;
-            --nav-button-bg: white;
-            --nav-button-color: #7e57c2;
-            --nav-button-shadow: rgba(0, 0, 0, 0.1);
-            --indicator-bg: #ddd;
-            --indicator-active: #7e57c2;
-            --toggle-bg: #fff;
-            --toggle-border: #ccc;
-            --toggle-icon: '🌙';
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        body.dark-mode {
-            --bg-gradient-start: #1a1a2e;
-            --bg-gradient-end: #16213e;
-            --text-primary: #f0f0f0;
-            --text-secondary: #a0a0a0;
-            --card-bg: #2d2d3f;
-            --card-shadow: rgba(0, 0, 0, 0.3);
-            --star-color: #FFD700;
-            --review-text: #d0d0d0;
-            --reviewer-name: #f0f0f0;
-            --reviewer-title: #a0a0a0;
-            --nav-button-bg: #3d3d5c;
-            --nav-button-color: #9d7ae6;
-            --nav-button-shadow: rgba(0, 0, 0, 0.3);
-            --indicator-bg: #555;
-            --indicator-active: #9d7ae6;
-            --toggle-bg: #3d3d5c;
-            --toggle-border: #555;
-            --toggle-icon: '☀️';
-        }
-        
-        body {
-            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            transition: background 0.5s ease;
-        }
-        
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            padding: 20px;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-        
-        .dark-mode-toggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--toggle-bg);
-            border: 1px solid var(--toggle-border);
-            border-radius: 30px;
-            width: 60px;
-            height: 30px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px var(--card-shadow);
-        }
-        
-        .dark-mode-toggle::before {
-            content: var(--toggle-icon);
-            font-size: 16px;
-            transition: transform 0.3s ease;
-        }
-        
-        .reviews-container {
-            position: relative;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        
-        .reviews-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .review-card {
-            flex: 0 0 calc(33.333% - 30px);
-            margin: 0 15px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--card-shadow);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        
-        .stars {
-            color: var(--star-color);
-            margin-bottom: 15px;
-        }
-        
-        .review-text {
-            font-style: italic;
-            color: var(--review-text);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-            transition: color 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-        }
-        
-        .reviewer-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-weight: bold;
-            color: #7e57c2;
-            font-size: 1.2rem;
-        }
-        
-        .reviewer-name {
-            font-weight: 600;
-            color: var(--reviewer-name);
-            transition: color 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .reviewer-title {
-            font-size: 0.9rem;
-            color: var(--reviewer-title);
-            transition: color 0.3s ease;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 15px;
-        }
-        
-        .nav-button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--nav-button-bg);
-            border: none;
-            box-shadow: 0 5px 15px var(--nav-button-shadow);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--nav-button-color);
-            transition: all 0.3s ease;
-        }
-        
-        .nav-button:hover {
-            background: var(--nav-button-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
-        }
-        
-        .indicators {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
-        
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--indicator-bg);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .indicator.active {
-            background: var(--indicator-active);
-            transform: scale(1.2);
-        }
-        
-        /* Mobile-specific improvements */
-        @media (max-width: 992px) {
-            .review-card {
-                flex: 0 0 calc(50% - 20px);
-                margin: 0 10px;
-                padding: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2.2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header {
-                margin-bottom: 30px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-                padding: 0 40px;
-            }
-            
-            .header p {
-                font-size: 1rem;
-                padding: 0 20px;
-            }
-            
-            .review-card {
-                flex: 0 0 calc(100% - 40px);
-                margin: 0 20px;
-                padding: 25px;
-            }
-            
-            .review-text {
-                font-size: 1rem;
-            }
-            
-            .reviewer-name {
-                font-size: 1rem;
-            }
-            
-            .reviewer-title {
-                font-size: 0.85rem;
-            }
-            
-            .dark-mode-toggle {
-                position: relative;
-                top: 0;
-                right: 0;
-                margin: 15px auto;
-            }
-            
-            .reviews-container {
-                padding: 10px 0;
-            }
-            
-            /* Center the active card on mobile */
-            .reviews-track {
-                padding: 0 10%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .review-card {
-                padding: 20px 15px;
-            }
-            
-            .reviewer-avatar {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .nav-button {
-                width: 45px;
-                height: 45px;
-            }
-        }
-    </style>
+      }
+      
+      .saas-nav-link {
+        padding: 0.8rem 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    /* Additional styles for the hero with cooldown */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem 0;
+      background: url("https://images.unsplash.com/photo-1545179767-1198fd4a3e1b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0") no-repeat center/cover;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      transition: background 0.3s ease;
+    }
+    
+    body.dark-mode .hero::before {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .cooldown-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      z-index: 10;
+      animation: pulse 2s infinite;
+    }
+    
+    body.dark-mode .cooldown-container {
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    #cooldown-timer {
+      font-weight: 700;
+      color: #e63946;
+      font-size: 1.1rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .cooldown-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 15px;
+      }
+      
+      .hero-content {
+        margin-top: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- HEADER -->
+  <header>
     <div class="container">
-        <div class="header">
-            <h1>Customer Reviews</h1>
-            <p>See what our customers are saying about us</p>
-            <div class="dark-mode-toggle" id="modeToggle" aria-label="Toggle dark mode"></div>
+      <nav class="saas-nav">
+        <a href="/" class="saas-logo">
+          <span class="logo-icon">👟</span> PRIME STEP
+        </a>
+
+        <div class="saas-nav-links">
+          <a href="index.html" class="saas-nav-link active">Home</a>
+          <a href="shop.html" class="saas-nav-link">Shop</a>
+          <a href="about.html" class="saas-nav-link">About</a>
+          <a href="contact.html" class="saas-nav-link">Contact</a>
         </div>
         
-        <div class="reviews-container">
-            <div class="reviews-track">
-                <!-- Review 1 -->
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Great product! The quality exceeded my expectations and the comfort is amazing."</p>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">JD</div>
-                        <div>
-                            <div class="reviewer-name">John Doe</div>
-                            <div class="reviewer-title">Verified Customer</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Review 2 -->
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Excellent service. The team was responsive and helped me find exactly what I needed."</p>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">JS</div>
-                        <div>
-                            <div class="reviewer-name">Jane Smith</div>
-                            <div class="reviewer-title">Verified Customer</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Review 3 -->
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="review-text">"Will buy again! The shoes are stylish and comfortable for all-day wear."</p>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">AL</div>
-                        <div>
-                            <div class="reviewer-name">Alice Lee</div>
-                            <div class="reviewer-title">Verified Customer</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Review 4 -->
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Fast delivery and quality shoes. I'm impressed with how quickly I received my order."</p>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">MB</div>
-                        <div>
-                            <div class="reviewer-name">Michael Brown</div>
-                            <div class="reviewer-title">Verified Customer</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Review 5 -->
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Highly recommend to friends! The style and comfort are unmatched by other brands."</p>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">SW</div>
-                        <div>
-                            <div class="reviewer-name">Sarah Wilson</div>
-                            <div class="reviewer-title">Verified Customer</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="nav-buttons">
-                <button class="nav-button prev-button">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-button next-button">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            
-            <div class="indicators">
-                <div class="indicator active"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-            </div>
+        <div class="nav-actions">
+          <button id="modeToggle" aria-label="Toggle dark mode">🌓</button>
+          <button class="mobile-menu-toggle" aria-label="Mobile menu">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO with Cooldown Timer -->
+  <section class="hero">
+    <!-- Cooldown Timer in Hero -->
+    <div class="cooldown-container">
+      <span>⚡ Clear Stock Cooldown!</span>
+      <div id="cooldown-timer">00:00:00</div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.reviews-track');
-            const cards = document.querySelectorAll('.review-card');
-            const prevButton = document.querySelector('.prev-button');
-            const nextButton = document.querySelector('.next-button');
-            const indicators = document.querySelectorAll('.indicator');
-            const modeToggle = document.getElementById('modeToggle');
-            
-            let currentIndex = 0;
-            const cardCount = cards.length;
-            
-            // Dark mode functionality
-            if (modeToggle) {
-                // Check for saved dark mode preference
-                if (localStorage.getItem('darkMode') === 'true') {
-                    document.body.classList.add('dark-mode');
-                    modeToggle.setAttribute('aria-pressed', 'true');
-                }
-                
-                modeToggle.addEventListener('click', function() {
-                    const isDarkMode = document.body.classList.toggle('dark-mode');
-                    localStorage.setItem('darkMode', isDarkMode);
-                    modeToggle.setAttribute('aria-pressed', isDarkMode);
-                });
-            }
-            
-            // Calculate how many cards to show based on screen width
-            function getCardsToShow() {
-                if (window.innerWidth >= 992) {
-                    return 3;
-                } else if (window.innerWidth >= 768) {
-                    return 2;
-                } else {
-                    return 1;
-                }
-            }
-            
-            // Update carousel position
-            function updateCarousel() {
-                const cardsToShow = getCardsToShow();
-                const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight) * 2;
-                const translateX = -currentIndex * cardWidth;
-                track.style.transform = `translateX(${translateX}px)`;
-                
-                // Update indicators
-                indicators.forEach((indicator, index) => {
-                    if (index === currentIndex) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Next slide
-            nextButton.addEventListener('click', function() {
-                const cardsToShow = getCardsToShow();
-                if (currentIndex < cardCount - cardsToShow) {
-                    currentIndex++;
-                    updateCarousel();
-                }
-            });
-            
-            // Previous slide
-            prevButton.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
-                }
-            });
-            
-            // Click on indicator
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
-                    currentIndex = index;
-                    updateCarousel();
-                });
-            });
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                updateCarousel();
-            });
-            
-            // Initialize carousel
-            updateCarousel();
-            
-            // Auto slide every 5 seconds
-            setInterval(function() {
-                const cardsToShow = getCardsToShow();
-                if (currentIndex < cardCount - cardsToShow) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
-                }
-                updateCarousel();
-            }, 5000);
-        });
-    </script>
+    <div class="hero-content">
+      <h1>Step into <span class="highlight">Style</span></h1>
+      <p class="hero-subtitle">Premium footwear crafted for comfort and performance</p>
+      <div class="hero-cta">
+        <a href="contact.html" class="btn-primary">Contact Us</a>
+        <a href="about.html" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+
+<!-- CUSTOMER REVIEWS -->
+<section class="customer-reviews">
+  <h2>Customer Reviews</h2>
+
+  <!-- Add this wrapper container around the slider -->
+  <div class="reviews-container">
+    <div class="reviews-slider">
+      <div class="review-card">
+        <p>"Great product!"</p>
+        <div class="reviewer-info">– John Doe</div>
+      </div>
+      <div class="review-card">
+        <p>"Excellent service."</p>
+        <div class="reviewer-info">– Jane Smith</div>
+      </div>
+      <div class="review-card">
+        <p>"Will buy again!"</p>
+        <div class="reviewer-info">– Alice Lee</div>
+      </div>
+      <div class="review-card">
+        <p>"Fast delivery and quality shoes."</p>
+        <div class="reviewer-info">– Michael Brown</div>
+      </div>
+      <div class="review-card">
+        <p>"Highly recommend to friends!"</p>
+        <div class="reviewer-info">– Sarah Wilson</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section id="featured" class="featured-products featured-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Category Product</h2>
+        <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="products">
+
+        <!-- Sneaker -->
+        <div class="product-card sneaker-category">
+          <div class="product-badge">SNEAKER</div>
+          <img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&auto=format&fit=crop&q=60" alt="Nike Low Sneaker">
+          <div class="product-info">
+            <h3>Nike Low</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#000;"></span>
+                <span class="color-option" style="background-color:#fff; border:1px solid #ddd;"></span>
+                <span class="color-option" style="background-color:#e63946;"></span>
+              </div>
+              <div class="product-price">RM250.00</div>
+            </div>
+            <a href="shop.html" class="product-cta">Shop Now</a>
+          </div>
+        </div>
+
+        <!-- Sport -->
+        <div class="product-card sport-category">
+          <div class="product-badge sale">SPORT</div>
+          <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&auto=format&fit=crop&q=60" alt="Adidas Originals Sport Shoes">
+          <div class="product-info">
+            <h3>Adidas Originals</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#e58d11;"></span>
+                <span class="color-option" style="background-color:#000;"></span>
+              </div>
+              <div class="product-price"><span class="original-price">RM559.99</span> RM499.99</div>
+            </div>
+            <a href="shop.html" class="product-cta">Shop Now</a>
+          </div>
+        </div>
+
+        <!-- Formal -->
+        <div class="product-card formal-category">
+          <div class="product-badge sale">FORMAL</div>
+          <img src="https://images.unsplash.com/photo-1696271026746-b55c30124d95?w=600&auto=format&fit=crop&q=60" alt="Cole Haan Oxfords">
+          <div class="product-info">
+            <h3>Cole Haan Oxfords</h3>
+            <div class="product-meta">
+              <div class="product-colors">
+                <span class="color-option" style="background-color:#6e5318;"></span>
+                <span class="color-option" style="background-color:#000;"></span>
+              </div>
+              <div class="product-price">RM149.99</div>
+            </div>
+            <a href="shop.html" class="product-cta">Shop Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-truck"></i></div>
+          <h3>Free Shipping</h3>
+          <p>On all orders over $50</p>
+          <div class="feature-testimonial"><p>“Fast delivery every time!” – Emma</p></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-undo"></i></div>
+          <h3>Easy Returns</h3>
+          <p>30-day return policy</p>
+          <div class="feature-testimonial"><p>“Returning products was super easy.” – Liam</p></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h3>Secure Payment</h3>
+          <p>100% secure checkout</p>
+          <div class="feature-testimonial"><p>“I always feel safe paying here.” – Sophia</p></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <h3>24/7 Support</h3>
+          <p>Dedicated support</p>
+          <div class="feature-testimonial"><p>“Customer service is amazing!” – Noah</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest releases and exclusive offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col brand-col">
+          <div class="footer-logo"><span class="logo-icon">👟</span> PRIME STEP</div>
+          <p class="footer-tagline">Premium footwear for every step of your journey.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#">Men's Shoes</a></li>
+            <li><a href="#">Women's Shoes</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+      <div class="footer-bottom">
+  <div class="footer-copyright">
+    <p>&copy; 2025 PRIME STEP. All rights reserved.</p>
+    <p>Images sourced from <a href="https://unsplash.com" target="_blank">Unsplash</a> (free license).</p>
+  </div>
+</div>
+
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

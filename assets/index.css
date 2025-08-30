@@ -1,4 +1,4 @@
-/* CSS Variables */
+/* CSS Variables  */
 :root {
   --primary-color: #FF6B6B;
   --secondary-color: #0a0a0a;
@@ -91,14 +91,13 @@
   color: #fff;
 }
 
-/* CUSTOMER REVIEWS - IMPROVED FOR MOBILE */
+/* CUSTOMER REVIEWS */
 .customer-reviews {
   padding: 4rem 1rem;
   background: #FF6B6B;
   text-align: center;
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 /* Light mode (default) */
@@ -113,20 +112,56 @@ body.dark-mode .customer-reviews h2 {
   color: var(--text-color-dark); 
 }
 
-/* Reviews container with improved mobile support */
-.reviews-container {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
+update that inside my css
 
-/* Reviews slider with touch support */
+/* Reviews slider container */
 .reviews-slider {
   display: flex;
-  transition: transform 0.5s ease;
-  padding: 10px 0;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-right: 1rem;
   will-change: transform;
+  scroll-behavior: smooth;
+  overflow-x: auto; /* allow horizontal scroll on mobile */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+}
+
+
+/* CUSTOMER REVIEWS */
+.customer-reviews {
+  padding: 4rem 1rem;
+  background: #FF6B6B;
+  text-align: center;
+  transition: var(--transition);
+  overflow: hidden; 
+}
+
+/* Light mode (default) */
+.customer-reviews h2 {
+  margin-bottom: 2rem;
+  color: #000000; 
+  transition: color 0.3s ease;
+}
+
+/* Dark mode */
+body.dark-mode .customer-reviews h2 {
+  color: var(--text-color-dark); 
+}
+
+/* Reviews slider container  */
+.reviews-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-right: 1rem;
+  will-change: transform;
+}
+
+/* slide container*/
+.reviews-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
 /* Each review card */
@@ -136,29 +171,51 @@ body.dark-mode .customer-reviews h2 {
   background: var(--card-bg);
   color: var(--text-color);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
   text-align: left;
   border: 1px solid var(--border-color);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.4;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
-  margin: 0 12px;
-  scroll-snap-align: start;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+
 
 /* Hover effect */
 .review-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05) translateZ(0);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Review card content */
-.reviewer-info {
-  margin-top: 1rem;
-  font-weight: 600;
-  color: var(--text-color);
-  transition: color 0.3s ease;
+
+/* Responsive adjustments for tablets and above */
+@media (min-width: 768px) {
+  .review-card {
+    width: 240px; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .review-card {
+    width: 220px; 
+  }
+}
+
+/* Mobile: horizontal slider with one card visible */
+
+@media (max-width: 767px) {
+  .reviews-slider {
+    display: flex;
+    flex-wrap: nowrap;  
+    gap: 1rem;
+  }
+
+  .review-card {
+    flex: 0 0 90%;      
+    max-width: 90%;
+  }
 }
 
 /* Dark mode adjustments */
@@ -168,149 +225,17 @@ body.dark-mode .review-card {
   border-color: var(--border-color-dark);
 }
 
-body.dark-mode .reviewer-info {
-  color: var(--text-color-dark);
-}
-
-/* Navigation controls for mobile */
-.reviews-controls {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-  gap: 1rem;
-}
-
-.reviews-nav-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-body.dark-mode .reviews-nav-button {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-}
-
-.reviews-nav-button:hover {
-  transform: scale(1.1);
-}
-
-/* Dot indicators */
-.reviews-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 0.5rem;
-}
-
-.reviews-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-body.dark-mode .reviews-dot {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.reviews-dot.active {
-  background: rgba(255, 255, 255, 0.9);
-  transform: scale(1.2);
-}
-
-body.dark-mode .reviews-dot.active {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-/* Mobile-specific styles */
-@media (max-width: 767px) {
-  .customer-reviews {
-    padding: 3rem 0.5rem;
-  }
-  
-  .reviews-container {
-    padding: 0 10px;
-  }
-  
-  .reviews-slider {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    padding-bottom: 20px;
-  }
-  
-  .reviews-slider::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-  }
-  
-  .review-card {
-    width: 85%;
-    max-width: 300px;
-    scroll-snap-align: center;
-  }
-  
-  .reviews-controls {
-    display: none; /* Hide arrows on mobile - using swipe instead */
-  }
-  
-  .reviews-dots {
-    margin-top: 1.5rem;
-  }
-}
-
-/* Tablet styles */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .review-card {
-    width: 45%;
-    max-width: 320px;
-  }
-}
-
-/* Desktop styles */
-@media (min-width: 1024px) {
-  .reviews-container {
-    max-width: 1200px;
-  }
-  
-  .review-card {
-    width: 30%;
-    max-width: 350px;
-  }
-}
-
 /* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .review-card {
   animation: fadeIn 0.5s ease forwards;
 }
-
 .reviews-slider .review-card:nth-child(1) { animation-delay: 0.1s; }
 .reviews-slider .review-card:nth-child(2) { animation-delay: 0.2s; }
 .reviews-slider .review-card:nth-child(3) { animation-delay: 0.3s; }
-.reviews-slider .review-card:nth-child(4) { animation-delay: 0.4s; }
-.reviews-slider .review-card:nth-child(5) { animation-delay: 0.5s; }
+/* Smooth transitions for slider */
+.reviews-slider {
+  scroll-behavior: smooth;
+}
 
 /* PRODUCTS */
 .featured-section { 
@@ -642,6 +567,11 @@ body.dark-mode .footer-legal a {
     align-items: center;
   }
   
+  .reviews-slider {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
   .newsletter-form {
     flex-direction: column;
     align-items: center;
@@ -700,3 +630,7 @@ body {
 .features-grid .feature-card:nth-child(2) { animation-delay: 0.2s; }
 .features-grid .feature-card:nth-child(3) { animation-delay: 0.3s; }
 .features-grid .feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+.reviews-slider .review-card:nth-child(1) { animation-delay: 0.1s; }
+.reviews-slider .review-card:nth-child(2) { animation-delay: 0.2s; }
+.reviews-slider .review-card:nth-child(3) { animation-delay: 0.3s; }

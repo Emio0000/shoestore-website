@@ -127,44 +127,49 @@ update that inside my css
 }
 
 
-/* CUSTOMER REVIEWS */
+/* === CUSTOMER REVIEWS SECTION === */
 .customer-reviews {
   padding: 4rem 1rem;
   background: #FF6B6B;
   text-align: center;
   transition: var(--transition);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-/* Light mode (default) */
+/* Light mode */
 .customer-reviews h2 {
   margin-bottom: 2rem;
-  color: #000000; 
+  color: #000000;
   transition: color 0.3s ease;
 }
 
 /* Dark mode */
 body.dark-mode .customer-reviews h2 {
-  color: var(--text-color-dark); 
+  color: var(--text-color-dark);
 }
 
-/* Reviews slider container  */
-.reviews-slider {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  padding-right: 1rem;
-  will-change: transform;
-}
-
-/* slide container*/
+/* === REVIEWS CONTAINER === */
 .reviews-container {
   overflow: hidden;
   width: 100%;
   position: relative;
 }
 
-/* Each review card */
+/* === SLIDER (desktop auto-scroll) === */
+.reviews-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-right: 1rem;
+  overflow-x: scroll;
+  scroll-behavior: auto; /* JS controls movement */
+  scrollbar-width: none;  /* Firefox */
+}
+.reviews-slider::-webkit-scrollbar {
+  display: none;          /* Chrome/Safari/Edge */
+}
+
+/* === REVIEW CARD === */
 .review-card {
   flex: 0 0 auto;
   width: 280px;
@@ -177,48 +182,46 @@ body.dark-mode .customer-reviews h2 {
   border: 1px solid var(--border-color);
   font-size: 0.9rem;
   line-height: 1.4;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
+/* Hover (desktop only) */
 .review-card:hover {
-  transform: scale(1.05) translateZ(0);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Responsive adjustments for tablets and above */
+/* Dark mode */
+body.dark-mode .review-card {
+  background: var(--card-bg-dark);
+  color: var(--text-color-dark);
+  border-color: var(--border-color-dark);
+}
+
+/* === RESPONSIVE === */
 @media (min-width: 768px) {
   .review-card {
-    width: 240px; 
+    width: 240px;
   }
 }
-
 @media (min-width: 1024px) {
   .review-card {
-    width: 220px; 
+    width: 220px;
   }
 }
 
-/* MOBILE SLIDER FIX (Below 768px) */
+/* === MOBILE SLIDER (swipe mode) === */
 @media (max-width: 767px) {
   .reviews-container {
     overflow-x: auto !important;
-    overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
-    width: 100vw !important;
-    margin-left: -1rem !important;
-    padding: 0 !important;
   }
-  
   .reviews-container::-webkit-scrollbar {
     display: none !important;
   }
-  
+
   .reviews-slider {
     display: flex !important;
     flex-direction: row !important;
@@ -226,47 +229,21 @@ body.dark-mode .customer-reviews h2 {
     width: max-content !important;
     gap: 20px !important;
     padding: 20px 5% !important;
-    transform: none !important;
-    animation: none !important;
   }
-  
+
   .review-card {
     flex: 0 0 85% !important;
     min-width: 85% !important;
     max-width: 85% !important;
     scroll-snap-align: center !important;
-    margin: 0 !important;
-    width: auto !important;
   }
-  
-  /* Remove all transforms and animations */
+
+  /* disable hover zoom on mobile */
   .review-card:hover {
     transform: none !important;
   }
-  
-  .reviews-slider .review-card {
-    animation: none !important;
-  }
-}
-/* Dark mode adjustments */
-body.dark-mode .review-card {
-  background: var(--card-bg-dark);
-  color: var(--text-color-dark);
-  border-color: var(--border-color-dark);
 }
 
-/* Fade-in animation */
-.review-card {
-  animation: fadeIn 0.5s ease forwards;
-}
-.reviews-slider .review-card:nth-child(1) { animation-delay: 0.1s; }
-.reviews-slider .review-card:nth-child(2) { animation-delay: 0.2s; }
-.reviews-slider .review-card:nth-child(3) { animation-delay: 0.3s; }
-
-/* Smooth transitions for slider */
-.reviews-slider {
-  scroll-behavior: smooth;
-}
 
 /* PRODUCTS */
 .featured-section { 

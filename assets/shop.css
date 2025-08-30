@@ -38,6 +38,8 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
+
 /* PRODUCTS SECTION */
 .featured-section {
   padding: 4rem 0;
@@ -466,3 +468,13 @@ header {
 .products-grid .shop-product-card:nth-child(3) { animation-delay: 0.3s; }
 .products-grid .shop-product-card:nth-child(4) { animation-delay: 0.4s; }
 .products-grid .shop-product-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Add to your existing media queries */
+@media (max-width: 768px) {
+  /* Keep your existing mobile styles and add: */
+  .review-card {
+    margin: 0 10px;
+    min-width: calc(100% - 20px);
+    padding: 1.5rem;
+  }
+}

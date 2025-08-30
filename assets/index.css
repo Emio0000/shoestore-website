@@ -103,13 +103,17 @@
   color: var(--text-color);
   transition: color 0.3s ease;
 }
+
+/* Smooth infinite review slider */
 .reviews-slider {
   display: flex;
   gap: 2rem;
-  overflow: hidden;      
-  scroll-behavior: auto;  
+  overflow: hidden;
   padding-bottom: 1rem;
+  white-space: nowrap;
+  animation: scrollReviews 20s linear infinite;
 }
+
 .review-card {
   background: var(--card-bg); 
   color: var(--text-color);
@@ -117,21 +121,35 @@
   padding: 1.2rem;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
   text-align: left;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s ease, color 0.3s ease;
   min-width: 280px;
   flex: 0 0 auto;
   border: 1px solid var(--border-color);
+  display: inline-block;
 }
+
+/* Hover effect (optional) */
 .review-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
 .reviewer-info {
   margin-top: .8rem;
   font-size: .9rem;
   color: #555;
   transition: color 0.3s ease;
 }
+
+/* Infinite scroll animation */
+@keyframes scrollReviews {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 /* Dark mode styles for customer reviews */
 body.dark-mode .customer-reviews { 

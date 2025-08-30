@@ -210,6 +210,9 @@ body.dark-mode .customer-reviews h2 {
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
+    width: 100vw !important;
+    margin-left: -1rem !important;
+    padding: 0 !important;
   }
   
   .reviews-container::-webkit-scrollbar {
@@ -218,10 +221,13 @@ body.dark-mode .customer-reviews h2 {
   
   .reviews-slider {
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     width: max-content !important;
-    gap: 20px;
-    padding: 20px 5%;
+    gap: 20px !important;
+    padding: 20px 5% !important;
+    transform: none !important;
+    animation: none !important;
   }
   
   .review-card {
@@ -233,12 +239,15 @@ body.dark-mode .customer-reviews h2 {
     width: auto !important;
   }
   
-  /* Remove hover effects on mobile for better performance */
+  /* Remove all transforms and animations */
   .review-card:hover {
     transform: none !important;
   }
+  
+  .reviews-slider .review-card {
+    animation: none !important;
+  }
 }
-
 /* Dark mode adjustments */
 body.dark-mode .review-card {
   background: var(--card-bg-dark);

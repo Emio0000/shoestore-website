@@ -188,37 +188,81 @@ body.dark-mode .customer-reviews h2 {
   transform: scale(1.05) translateZ(0);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
-/* Mobile styles - will only apply below 768px */
+/* MOBILE SLIDER FIX - FORCE HORIZONTAL LAYOUT */
 @media (max-width: 767px) {
-  .reviews-slider-container.mobile-slider {
+  .customer-reviews {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  .reviews-slider-wrapper {
+    width: 100%;
+    position: relative;
+  }
+  
+  .reviews-slider-container {
     width: 100% !important;
-    overflow-x: auto !important;
+    overflow-x: scroll !important;
     overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
   }
   
-  .reviews-slider-container.mobile-slider::-webkit-scrollbar {
+  .reviews-slider-container::-webkit-scrollbar {
     display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
   
-  .reviews-slider.mobile-slider {
+  .reviews-slider {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     width: max-content !important;
-    gap: 15px;
+    gap: 20px;
     padding: 10px 5%;
   }
   
-  .review-card.mobile-slider {
-    flex: 0 0 90% !important;
-    min-width: 90% !important;
-    max-width: 90% !important;
+  .review-card {
+    flex: 0 0 85% !important;
+    min-width: 85% !important;
+    max-width: 85% !important;
     scroll-snap-align: center !important;
     margin: 0 !important;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Force remove any desktop styles that might interfere */
+  .reviews-slider > * {
+    float: none !important;
+    display: block !important;
+    width: auto !important;
+  }
+}
+
+/* DESKTOP STYLES (normal grid layout) */
+@media (min-width: 768px) {
+  .reviews-slider-container {
+    overflow: visible !important;
+  }
+  
+  .reviews-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100% !important;
+  }
+  
+  .review-card {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
@@ -228,7 +272,6 @@ body.dark-mode .review-card {
   color: var(--text-color-dark);
   border-color: var(--border-color-dark);
 }
-
 /* Fade-in animation */
 .review-card {
   animation: fadeIn 0.5s ease forwards;

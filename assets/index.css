@@ -1,4 +1,4 @@
-/* CSS Variables for consistent theming */
+/* CSS Variables  */
 :root {
   --primary-color: #FF6B6B;
   --secondary-color: #0a0a0a;
@@ -94,81 +94,96 @@
 /* CUSTOMER REVIEWS */
 .customer-reviews {
   padding: 4rem 1rem;
-  background: #f9f9f9;
+  background: #FF6B6B;
   text-align: center;
   transition: var(--transition);
+  overflow: hidden; 
 }
-.customer-reviews h2 { 
-  margin-bottom: 2rem; 
-  color: var(--text-color);
+
+/* Light mode (default) */
+.customer-reviews h2 {
+  margin-bottom: 2rem;
+  color: #000000; 
   transition: color 0.3s ease;
 }
 
-/* Smooth infinite review slider */
+/* Dark mode */
+body.dark-mode .customer-reviews h2 {
+  color: var(--text-color-dark); 
+}
+
+/* Reviews slider container  */
 .reviews-slider {
   display: flex;
-  gap: 2rem;
-  overflow: hidden;
-  padding-bottom: 1rem;
-  white-space: nowrap;
-  animation: scrollReviews 20s linear infinite;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-right: 1rem;
+  will-change: transform;
 }
 
+/* slide container*/
+.reviews-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Each review card */
 .review-card {
-  background: var(--card-bg); 
+  flex: 0 0 auto;
+  width: 280px;
+  background: var(--card-bg);
   color: var(--text-color);
   border-radius: 12px;
-  padding: 1.2rem;
+  padding: 1rem;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
   text-align: left;
-  min-width: 280px;
-  flex: 0 0 auto;
   border: 1px solid var(--border-color);
-  display: inline-block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* Hover effect (optional) */
+
+/* Hover effect */
 .review-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: scale(1.05) translateZ(0);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.reviewer-info {
-  margin-top: .8rem;
-  font-size: .9rem;
-  color: #555;
-  transition: color 0.3s ease;
-}
 
-/* Infinite scroll animation */
-@keyframes scrollReviews {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .review-card {
+    width: 240px; 
   }
 }
 
+@media (min-width: 1024px) {
+  .review-card {
+    width: 220px; 
+  }
+}
 
-/* Dark mode styles for customer reviews */
-body.dark-mode .customer-reviews { 
-  background: #000; 
-}
-body.dark-mode .customer-reviews h2 {
-  color: var(--text-color-dark);
-}
-body.dark-mode .review-card { 
-  background: var(--card-bg-dark); 
+/* Dark mode adjustments */
+body.dark-mode .review-card {
+  background: var(--card-bg-dark);
   color: var(--text-color-dark);
   border-color: var(--border-color-dark);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
-body.dark-mode .review-card:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+/* Fade-in animation */
+.review-card {
+  animation: fadeIn 0.5s ease forwards;
 }
-body.dark-mode .reviewer-info { 
-  color: #bbb; 
+.reviews-slider .review-card:nth-child(1) { animation-delay: 0.1s; }
+.reviews-slider .review-card:nth-child(2) { animation-delay: 0.2s; }
+.reviews-slider .review-card:nth-child(3) { animation-delay: 0.3s; }
+/* Smooth transitions for slider */
+.reviews-slider {
+  scroll-behavior: smooth;
 }
 
 /* PRODUCTS */

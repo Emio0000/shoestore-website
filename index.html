@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/base.css">
   <!-- Page-Specific Styles -->
   <link rel="stylesheet" href="assets/index.css">
+  <script src="assets/index.js" defer></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -277,17 +278,32 @@
 <!-- CUSTOMER REVIEWS -->
 <section class="customer-reviews">
   <h2>Customer Reviews</h2>
+
+  <!-- Add this wrapper container around the slider -->
   <div class="reviews-container">
     <div class="reviews-slider">
-      <div class="review-card"><p>“Great shoes! Very comfortable and stylish.”</p><div class="reviewer-info">– Alice</div></div>
-      <div class="review-card"><p>“Fast delivery and excellent quality.”</p><div class="reviewer-info">– Bob</div></div>
-      <div class="review-card"><p>“I love PRIME STEP! My new go-to shoe brand.”</p><div class="reviewer-info">– Charlie</div></div>
-      <div class="review-card"><p>“The most comfortable shoes I've ever worn.”</p><div class="reviewer-info">– Diana</div></div>
-      <div class="review-card"><p>“Perfect fit and amazing customer service.”</p><div class="reviewer-info">– Edward</div></div>
-      <div class="review-card"><p>“Worth every penny. Highly recommend!”</p><div class="reviewer-info">– Fiona</div></div>
+      <div class="review-card">
+        <p>"Great product!"</p>
+        <div class="reviewer-info">– John Doe</div>
+      </div>
+      <div class="review-card">
+        <p>"Excellent service."</p>
+        <div class="reviewer-info">– Jane Smith</div>
+      </div>
+      <div class="review-card">
+        <p>"Will buy again!"</p>
+        <div class="reviewer-info">– Alice Lee</div>
+      </div>
+      <div class="review-card">
+        <p>"Fast delivery and quality shoes."</p>
+        <div class="reviewer-info">– Michael Brown</div>
+      </div>
+      <div class="review-card">
+        <p>"Highly recommend to friends!"</p>
+        <div class="reviewer-info">– Sarah Wilson</div>
+      </div>
     </div>
   </div>
-  <div class="slider-dots"></div>
 </section>
 
   <!-- FEATURED PRODUCTS -->
@@ -460,85 +476,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Enhanced Dark Mode Toggle Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const modeToggle = document.getElementById('modeToggle');
-      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-      const navLinks = document.querySelector('.saas-nav-links');
-      
-      // Dark mode functionality
-      if (modeToggle) {
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'true') {
-          document.body.classList.add('dark-mode');
-          modeToggle.setAttribute('aria-pressed', 'true');
-        }
-        
-        modeToggle.addEventListener('click', function() {
-          const isDarkMode = document.body.classList.toggle('dark-mode');
-          localStorage.setItem('darkMode', isDarkMode);
-          modeToggle.setAttribute('aria-pressed', isDarkMode);
-          
-          // Add animation class for smooth transition
-          document.documentElement.classList.add('transition-mode');
-          setTimeout(() => {
-            document.documentElement.classList.remove('transition-mode');
-          }, 500);
-        });
-      }
-      
-      // Mobile menu functionality
-      if (mobileMenuToggle && navLinks) {
-        mobileMenuToggle.addEventListener('click', function() {
-          const isExpanded = navLinks.classList.toggle('active');
-          mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-          if (navLinks.classList.contains('active') && 
-              !event.target.closest('.saas-nav-links') && 
-              !event.target.closest('.mobile-menu-toggle')) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-    });
-  </script>
-  
-  <!-- Cooldown Timer Script -->
-  <script>
-    const countDownDate = new Date();
-    countDownDate.setHours(countDownDate.getHours() + 24);
-
-    const x = setInterval(function() {
-    
-      const now = new Date().getTime();
-      
-      const distance = countDownDate - now;
-      
-      
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      
-  
-      document.getElementById("cooldown-timer").innerHTML = 
-        (hours < 10 ? "0" : "") + hours + ":" + 
-        (minutes < 10 ? "0" : "") + minutes + ":" + 
-        (seconds < 10 ? "0" : "") + seconds;
-      
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("cooldown-timer").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-  </script>
-<!-- Add this to your head section -->
-<script src="assets/index.js" defer></script>
 
 </body>
 </html>

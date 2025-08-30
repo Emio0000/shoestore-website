@@ -112,6 +112,8 @@ body.dark-mode .customer-reviews h2 {
   color: var(--text-color-dark); 
 }
 
+update that inside my css
+
 /* Reviews slider container */
 .reviews-slider {
   display: flex;
@@ -124,19 +126,48 @@ body.dark-mode .customer-reviews h2 {
   -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
 }
 
-/* Slide container */
+
+/* CUSTOMER REVIEWS */
+.customer-reviews {
+  padding: 4rem 1rem;
+  background: #FF6B6B;
+  text-align: center;
+  transition: var(--transition);
+  overflow: hidden; 
+}
+
+/* Light mode (default) */
+.customer-reviews h2 {
+  margin-bottom: 2rem;
+  color: #000000; 
+  transition: color 0.3s ease;
+}
+
+/* Dark mode */
+body.dark-mode .customer-reviews h2 {
+  color: var(--text-color-dark); 
+}
+
+/* Reviews slider container  */
+.reviews-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-right: 1rem;
+  will-change: transform;
+}
+
+/* slide container*/
 .reviews-container {
   overflow: hidden;
   width: 100%;
   position: relative;
-  padding: 0 0.5rem; /* small padding for mobile */
 }
 
 /* Each review card */
 .review-card {
   flex: 0 0 auto;
-  width: 90%; /* almost full width on small screens */
-  max-width: 280px;
+  width: 280px;
   background: var(--card-bg);
   color: var(--text-color);
   border-radius: 12px;
@@ -151,20 +182,15 @@ body.dark-mode .customer-reviews h2 {
   backface-visibility: hidden;
 }
 
+
 /* Hover effect */
 .review-card:hover {
   transform: scale(1.05) translateZ(0);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Responsive adjustments */
-@media (min-width: 480px) {
-  .review-card {
-    width: 240px;
-    margin-right: 0.75rem;
-  }
-}
 
+/* Responsive adjustments for tablets and above */
 @media (min-width: 768px) {
   .review-card {
     width: 240px; 
@@ -176,6 +202,22 @@ body.dark-mode .customer-reviews h2 {
     width: 220px; 
   }
 }
+
+/* Mobile version*/
+@media (max-width: 767px) {
+  .reviews-slider {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /
+  }
+
+  .review-card {
+    width: 90%; 
+    flex: 0 0 90%;
+    scroll-snap-align: start; 
+    margin: 0 auto; 
+  }
+}
+
 
 /* Dark mode adjustments */
 body.dark-mode .review-card {
@@ -191,7 +233,6 @@ body.dark-mode .review-card {
 .reviews-slider .review-card:nth-child(1) { animation-delay: 0.1s; }
 .reviews-slider .review-card:nth-child(2) { animation-delay: 0.2s; }
 .reviews-slider .review-card:nth-child(3) { animation-delay: 0.3s; }
-
 /* Smooth transitions for slider */
 .reviews-slider {
   scroll-behavior: smooth;

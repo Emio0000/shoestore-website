@@ -207,14 +207,13 @@ body.dark-mode .customer-reviews h2 {
 
 @media (max-width: 767px) {
   .reviews-slider {
-    display: flex;
+    overflow-x: hidden;
     flex-wrap: nowrap;  
-    gap: 1rem;
   }
 
   .review-card {
     flex: 0 0 90%;      
-    max-width: 90%;
+    max-width: none;
   }
 }
 

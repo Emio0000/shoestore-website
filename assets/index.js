@@ -1,19 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
   const slider = document.querySelector('.reviews-slider');
   const slides = Array.from(document.querySelectorAll('.review-card'));
+  const reviewsContainer = document.querySelector('.reviews-container');
 
   if (!slider || slides.length === 0) return;
 
   const slideCount = slides.length;
-
-  // Clone all slides twice for seamless looping
-  for (let i = 0; i < slideCount * 2; i++) {
-    slider.appendChild(slides[i % slideCount].cloneNode(true));
-  }
-
   let animationId;
   let position = 0;
   const speed = 0.3;
+  let isMobile = window.innerWidth <= 767;
+
+  // Clone all slides twice for seamless looping (only for desktop)
+  if (!isMobile) {
+    for (let i = 0; i < slideCount * 2; i++) {
+      slider.appendChild(slides[i % slideCount].cloneNode(true));
+    }
+  }
 
   function getSlideWidth() {
     const firstSlide = slides[0];
@@ -22,21 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function animate() {
-    const slideWidth = getSlideWidth();
-    const totalOriginalWidth = slideWidth * slideCount;
+    // Only animate on desktop
+    if (!isMobile) {
+      const slideWidth = getSlideWidth();
+      const totalOriginalWidth = slideWidth * slideCount;
 
-    if (window.innerWidth <= 767) {
-      // Mobile: show one card at a time smoothly
-      const mobileSlideWidth = slideWidth; // full width of one card
-      position -= speed;
-
-      if (Math.abs(position) >= totalOriginalWidth) {
-        position = 0;
-      }
-
-      slider.style.transform = `translateX(${position}px)`;
-    } else {
-      // Desktop: original smooth auto-slide
       position -= speed;
 
       if (Math.abs(position) >= totalOriginalWidth) {
@@ -49,25 +42,53 @@ document.addEventListener('DOMContentLoaded', function() {
     animationId = requestAnimationFrame(animate);
   }
 
-  // Start animation
-  animationId = requestAnimationFrame(animate);
-
-  // Pause on hover
-  slider.addEventListener('mouseenter', () => {
-    cancelAnimationFrame(animationId);
-  });
-
-  slider.addEventListener('mouseleave', () => {
+  // Start animation only on desktop
+  if (!isMobile) {
     animationId = requestAnimationFrame(animate);
-  });
+  }
 
-  // Handle resize - maintain proper positioning
+  // Pause on hover (desktop only)
+  if (!isMobile) {
+    slider.addEventListener('mouseenter', () => {
+      cancelAnimationFrame(animationId);
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      animationId = requestAnimationFrame(animate);
+    });
+  }
+
+  // Handle resize - switch between mobile and desktop modes
   window.addEventListener('resize', () => {
-    cancelAnimationFrame(animationId);
-    const slideWidth = getSlideWidth();
-    const totalOriginalWidth = slideWidth * slideCount;
-    position = position % totalOriginalWidth;
-    animationId = requestAnimationFrame(animate);
+    const newIsMobile = window.innerWidth <= 767;
+    
+    if (isMobile !== newIsMobile) {
+      isMobile = newIsMobile;
+      cancelAnimationFrame(animationId);
+      
+      if (isMobile) {
+        // Mobile mode: reset transform and let CSS handle scrolling
+        slider.style.transform = 'translateX(0)';
+        position = 0;
+      } else {
+        // Desktop mode: start animation
+        // Remove any existing clones first
+        const allSlides = Array.from(slider.querySelectorAll('.review-card'));
+        const originalSlides = allSlides.slice(0, slideCount);
+        
+        // Clear slider and add only original slides
+        slider.innerHTML = '';
+        originalSlides.forEach(slide => slider.appendChild(slide));
+        
+        // Clone slides for seamless looping
+        for (let i = 0; i < slideCount * 2; i++) {
+          slider.appendChild(originalSlides[i % slideCount].cloneNode(true));
+        }
+        
+        // Restart animation
+        animationId = requestAnimationFrame(animate);
+      }
+    }
   });
 
   // Dark / Light mode toggle

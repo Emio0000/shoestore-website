@@ -1,30 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const slider = document.querySelector(".reviews-slider");
-  if (!slider) return;
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.reviews-slider');
 
-  let scrollAmount = 0;
-  const scrollStep = 1; // smaller = slower scroll
-  const scrollInterval = 20; // lower = smoother but uses more CPU
+  if (slider) {
+    // Duplicate slider content for seamless loop
+    slider.innerHTML += slider.innerHTML;
+    let scrollPos = 0;
+    const speed = 1; // adjust for faster/slower
 
-  function autoScroll() {
-    if (slider.scrollWidth <= slider.clientWidth) return; // skip if not scrollable
-
-    scrollAmount += scrollStep;
-    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
-      scrollAmount = 0; // reset to start
+    function autoScroll() {
+      scrollPos += speed;
+      if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0;
+      slider.scrollLeft = scrollPos;
+      requestAnimationFrame(autoScroll); // smooth continuous scroll
     }
-    slider.scrollTo({
-      left: scrollAmount,
-      behavior: "smooth"
-    });
+
+    autoScroll(); // start auto-scroll
+
+    // Optional: pause on hover for desktop
+    slider.addEventListener('mouseenter', () => cancelAnimationFrame(autoScroll));
+    slider.addEventListener('mouseleave', () => autoScroll());
   }
-
-  // Run every 30ms
-  setInterval(autoScroll, scrollInterval);
-});
-
-
-
 
   // ----- DARK / LIGHT MODE TOGGLE -----
   const modeToggle = document.getElementById('modeToggle');
@@ -82,5 +77,4 @@ document.addEventListener("DOMContentLoaded", function () {
       navLinks.classList.toggle('active');
     });
   }
-;
-
+});

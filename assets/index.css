@@ -173,10 +173,12 @@ body.dark-mode .review-card {
   }
 }
 
-/* === MOBILE SLIDER (swipe + auto-scroll) === */
+/* === MOBILE SLIDER (swipe only, no auto-scroll) === */
 @media (max-width: 767px) {
   .reviews-container {
-    overflow-x: hidden !important; /* JS handles looping */
+    overflow-x: auto !important; /* allow swipe */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    scroll-snap-type: x mandatory; /* snap effect */
     position: relative;
   }
 
@@ -193,7 +195,7 @@ body.dark-mode .review-card {
     flex: 0 0 220px !important;  /* same as desktop */
     min-width: 220px !important;
     max-width: 220px !important;
-    scroll-snap-align: center !important; /* center each card */
+    scroll-snap-align: start !important; /* snap each card */
   }
 
   /* disable hover zoom on mobile */

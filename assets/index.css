@@ -175,12 +175,7 @@ body.dark-mode .review-card {
 
 /* === MOBILE SLIDER (swipe only, no auto-scroll) === */
 @media (max-width: 767px) {
-  .reviews-container {
-    overflow-x: auto !important; /* allow swipe */
-    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-    scroll-snap-type: x mandatory; /* snap effect */
-    position: relative;
-  }
+  
 
   .reviews-slider {
     display: flex !important;

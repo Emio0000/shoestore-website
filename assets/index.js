@@ -1,23 +1,33 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const slider = document.querySelector('.reviews-slider');
-  if (slider) {
-    // Duplicate the cards for infinite scroll effect
-    slider.innerHTML += slider.innerHTML;
-    let scrollPos = 0;
+  
+// Duplicate the cards for infinite scroll effect
+if (slider) {
+  slider.innerHTML += slider.innerHTML;
 
-    function autoScroll() {
-      scrollPos += 1; // speed
-      if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0; // reset after half
-      slider.scrollLeft = scrollPos;
-    }
+  let scrollPos = 0;
+  let speed = 1; // adjust speed if needed
 
-    let scrollInterval = setInterval(autoScroll, 20);
-
-    // Pause on hover
-    slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-    slider.addEventListener('mouseleave', () => scrollInterval = setInterval(autoScroll, 20));
+  function autoScroll() {
+    scrollPos += speed;
+    if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0; // reset after half
+    slider.scrollLeft = scrollPos;
   }
+
+  // Auto scroll every 20ms (desktop + mobile)
+  let scrollInterval = setInterval(autoScroll, 20);
+
+  // Pause on hover (desktop only, mobile ignores)
+  slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+  slider.addEventListener('mouseleave', () => scrollInterval = setInterval(autoScroll, 20));
+
+  // For mobile: restart loop after touch/swipe
+  slider.addEventListener('touchend', () => {
+    clearInterval(scrollInterval);
+    scrollInterval = setInterval(autoScroll, 20);
+  });
+}
 
   // ----- DARK / LIGHT MODE TOGGLE -----
   const modeToggle = document.getElementById('modeToggle');

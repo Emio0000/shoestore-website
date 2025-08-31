@@ -1,36 +1,28 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".reviews-slider");
+  if (!slider) return;
 
-document.addEventListener('DOMContentLoaded', function() {
-  const slider = document.querySelector('.reviews-slider');
+  let scrollAmount = 0;
+  const scrollStep = 1; // smaller = slower scroll
+  const scrollInterval = 20; // lower = smoother but uses more CPU
 
-  if (slider) {
-    const isMobile = window.innerWidth <= 768;
+  function autoScroll() {
+    if (slider.scrollWidth <= slider.clientWidth) return; // skip if not scrollable
 
-    if (!isMobile) {
-      // Desktop → duplicate cards for seamless auto-loop
-      slider.innerHTML += slider.innerHTML;
-      let scrollPos = 0;
-      let speed = 1;
-
-      function autoScroll() {
-        scrollPos += speed;
-        if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0;
-        slider.scrollLeft = scrollPos;
-      }
-
-      let scrollInterval = setInterval(autoScroll, 20);
-
-      // Pause on hover (desktop only)
-      slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-      slider.addEventListener('mouseleave', () => {
-        scrollInterval = setInterval(autoScroll, 20);
-      });
-    } else {
-      // Mobile → no duplication, just allow swipe
-      slider.style.scrollSnapType = "x mandatory";
-      slider.style.overflowX = "auto";
-      slider.style.scrollBehavior = "smooth"; // smooth swipe
+    scrollAmount += scrollStep;
+    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+      scrollAmount = 0; // reset to start
     }
+    slider.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
   }
+
+  // Run every 30ms
+  setInterval(autoScroll, scrollInterval);
+});
+
 
 
 
@@ -90,5 +82,5 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.classList.toggle('active');
     });
   }
-});
+;
 

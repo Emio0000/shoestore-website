@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Duplicate slider content for seamless loop
     slider.innerHTML += slider.innerHTML;
     let scrollPos = 0;
-    const speed = 1; // adjust for faster/slower
+    const speed = 0.5; // adjust for faster/slower
 
     function autoScroll() {
       scrollPos += speed;

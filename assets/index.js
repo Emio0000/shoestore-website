@@ -1,38 +1,37 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-const slider = document.querySelector('.reviews-slider');
+  const slider = document.querySelector('.reviews-slider');
 
-if (slider) {
-  slider.innerHTML += slider.innerHTML; // duplicate for looping
+  if (slider) {
+    const isMobile = window.innerWidth <= 768;
 
-  let scrollPos = 0;
-  let speed = 1; // adjust speed if needed
-  let scrollInterval;
+    if (!isMobile) {
+      // Desktop → duplicate cards for seamless auto-loop
+      slider.innerHTML += slider.innerHTML;
+      let scrollPos = 0;
+      let speed = 1;
 
-  // Detect mobile
-  const isMobile = window.innerWidth <= 768;
+      function autoScroll() {
+        scrollPos += speed;
+        if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0;
+        slider.scrollLeft = scrollPos;
+      }
 
-  if (!isMobile) {
-    // Desktop → keep auto-loop
-    function autoScroll() {
-      scrollPos += speed;
-      if (scrollPos >= slider.scrollWidth / 2) scrollPos = 0; // reset
-      slider.scrollLeft = scrollPos;
+      let scrollInterval = setInterval(autoScroll, 20);
+
+      // Pause on hover (desktop only)
+      slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+      slider.addEventListener('mouseleave', () => {
+        scrollInterval = setInterval(autoScroll, 20);
+      });
+    } else {
+      // Mobile → no duplication, just allow swipe
+      slider.style.scrollSnapType = "x mandatory";
+      slider.style.overflowX = "auto";
+      slider.style.scrollBehavior = "smooth"; // smooth swipe
     }
-
-    scrollInterval = setInterval(autoScroll, 20);
-
-    // Pause on hover (desktop only)
-    slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-    slider.addEventListener('mouseleave', () => {
-      scrollInterval = setInterval(autoScroll, 20);
-    });
-  } else {
-    // Mobile → manual swipe only
-    slider.style.scrollSnapType = "x mandatory"; // nice swipe feel
-    slider.style.overflowX = "auto";
   }
-}
+
 
 
   // ----- DARK / LIGHT MODE TOGGLE -----
